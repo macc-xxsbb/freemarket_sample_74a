@@ -11,8 +11,8 @@
 |nickname|string|null: false|
 |name|string|null: false|
 |name_kana|string|null: false|
-|birthdate|Integer|null: false|
-|phone|Integer|null: false|
+|birthdate|integer|null: false|
+|phone|integer|null: false|
 
 
 ### Association
@@ -27,11 +27,11 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|itemname|----|-------|
-|image|----|-------|
-|size|----|-------|
-|content|----|-------|
-|status|----|-------|
+|item_name|string|-------|
+|image|text|-------|
+|size|integer|-------|
+|content|text|-------|
+|status|type|-------|
 
 ### Association
 
@@ -44,12 +44,12 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|itemname|----|-------|
-|price|----|-------|
-|region|----|-------|
-|city|----|-------|
-|block|----|-------|
-|shipMethod|----|-------|
+|item_name|string|-------|
+|price|integer|-------|
+|region|string|-------|
+|city|string|-------|
+|block|string|-------|
+|shipMethod|string|-------|
 
 ### Association
 
@@ -63,10 +63,10 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|creditCardapprovalcode|----|-------|
-|Exp|----|-------|
-|security_cord|----|-------|
-|user_id|----|-------|
+|credit_cardapproval_code|integer|-------|
+|Exp|integer|-------|
+|security_cord|integer|-------|
+|user_id|integer|-------|
 
 ### Association
 
@@ -79,8 +79,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|comment|----|-------|
-|user_id|----|-------|
+|comment|text|-------|
+|user_id|integer|-------|
 
 ### Association
 
@@ -93,7 +93,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|title|----|-------|
+|title|string|-------|
 
 
 ### Association
@@ -107,7 +107,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|brand|----|-------|
+|brand|string|-------|
 
 ### Association
 
@@ -120,8 +120,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|categoriy_id|----|-------|
-|item_id|----|-------|
+|categoriy_id|integer|-------|
+|item_id|integer|-------|
 
 ### Association
 
