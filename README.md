@@ -10,9 +10,9 @@
 |password|string|null: false|
 |nickname|string|null: false|
 |name|string|null: false|
-|name-kana|string|null: false|
-|birthdate|string|null: false|
-|phone|string|null: false|
+|name_kana|string|null: false|
+|birthdate|Integer|null: false|
+|phone|Integer|null: false|
 
 
 ### Association
@@ -48,9 +48,8 @@
 |price|----|-------|
 |region|----|-------|
 |city|----|-------|
-||----|-------|
-|------|----|-------|
-|------|----|-------|
+|block|----|-------|
+|shipMethod|----|-------|
 
 ### Association
 
@@ -64,6 +63,10 @@
 
 |Column|Type|Options|
 |------|----|-------|
+|creditCardapprovalcode|----|-------|
+|Exp|----|-------|
+|security_cord|----|-------|
+|user_id|----|-------|
 
 ### Association
 
@@ -76,6 +79,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
+|comment|----|-------|
+|user_id|----|-------|
 
 ### Association
 
@@ -88,6 +93,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
+|title|----|-------|
+
 
 ### Association
 
@@ -100,6 +107,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
+|brand|----|-------|
 
 ### Association
 
@@ -112,6 +120,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
+|categoriy_id|----|-------|
+|item_id|----|-------|
 
 ### Association
 
