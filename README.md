@@ -17,8 +17,8 @@
 
 ### Association
 
-- has_many :products
-- has_many :
+- has_many :items
+- has_many :items_categories
 - has_many :
 
 ------------------------------------
@@ -29,7 +29,7 @@
 |------|----|-------|
 |item_name|string|-------|
 |image|text|-------|
-|size|integer|-------|
+|size|string|-------|
 |content|text|-------|
 |status|type|-------|
 
@@ -125,8 +125,8 @@
 
 ### Association
 
-- belongs_to :user
-- has_many :products_image
+- belongs_to :item
+- belongs_to :categoriy
 
 ------------------------------------
 
