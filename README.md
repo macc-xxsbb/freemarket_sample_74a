@@ -1,24 +1,160 @@
 # README
+# freemarket_sample_74a DB設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## ユーザー
+## usersテーブル
 
-Things you may want to cover:
+|Column|Type|Options|
+|------|----|-------|
+|email|string|null: false|
+|password|string|null: false|
+|nickname|string|null: false|
+|name|string|null: false|
+|name-kana|string|null: false|
+|birthdate|string|null: false|
+|phone|string|null: false|
 
-* Ruby version
 
-* System dependencies
+### Association
 
-* Configuration
+- has_many :products
+- has_many :
+- has_many :
 
-* Database creation
+------------------------------------
+## 商品
+## itemsテーブル
 
-* Database initialization
+|Column|Type|Options|
+|------|----|-------|
+|itemname|----|-------|
+|image|----|-------|
+|size|----|-------|
+|content|----|-------|
+|status|----|-------|
 
-* How to run the test suite
+### Association
 
-* Services (job queues, cache servers, search engines, etc.)
+- belongs_to :user
+- has_many :products_image
 
-* Deployment instructions
+------------------------------------
+## 発送
+## shippingテーブル
 
-* ...
+|Column|Type|Options|
+|------|----|-------|
+|itemname|----|-------|
+|price|----|-------|
+|region|----|-------|
+|city|----|-------|
+||----|-------|
+|------|----|-------|
+|------|----|-------|
+
+### Association
+
+- belongs_to :
+- belongs_to :
+
+
+------------------------------------
+## クレジットカード
+## creditテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+
+### Association
+
+- belongs_to :
+- belongs_to :
+
+------------------------------------
+## コメント
+## commentsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+
+### Association
+
+- belongs_to :
+- belongs_to :
+
+------------------------------------
+## カテゴリー
+## categoriesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+
+### Association
+
+- belongs_to :
+- belongs_to :
+
+------------------------------------
+## ブランド
+## brandsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+
+### Association
+
+- belongs_to :
+- belongs_to :
+
+------------------------------------
+## 商品/カテゴリー
+## items_categoriesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+
+### Association
+
+- belongs_to :user
+- has_many :products_image
+
+------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+追加事項
+
+
+-----------------------------------
+## snsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+
+### Association
+
+- belongs_to :
+- belongs_to :
+
+------------------------------------
+## favoritesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+
+### Association
+
+- belongs_to :
+- belongs_to :
+
+------------------------------------
