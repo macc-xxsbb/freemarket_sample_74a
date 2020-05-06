@@ -18,8 +18,8 @@
 ### Association
 
 - has_many :products
-- has_many :
-- has_many :
+- has_many :credits
+- has_many :items
 
 ------------------------------------
 ## 商品
@@ -28,6 +28,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |itemname|----|-------|
+|price|----|-------|
 |image|----|-------|
 |size|----|-------|
 |content|----|-------|
@@ -37,6 +38,9 @@
 
 - belongs_to :user
 - has_many :products_image
+- has_many :comments
+- belongs_to :shipping
+- belongs_to :brand
 
 ------------------------------------
 ## 発送
@@ -54,8 +58,7 @@
 
 ### Association
 
-- belongs_to :
-- belongs_to :
+- belongs_to :item
 
 
 ------------------------------------
@@ -67,8 +70,7 @@
 
 ### Association
 
-- belongs_to :
-- belongs_to :
+- belongs_to :user
 
 ------------------------------------
 ## コメント
@@ -79,8 +81,8 @@
 
 ### Association
 
-- belongs_to :
-- belongs_to :
+- belongs_to :user
+- belongs_to :item
 
 ------------------------------------
 ## カテゴリー
@@ -91,8 +93,7 @@
 
 ### Association
 
-- belongs_to :
-- belongs_to :
+- belongs_to :item_category
 
 ------------------------------------
 ## ブランド
@@ -103,8 +104,7 @@
 
 ### Association
 
-- belongs_to :
-- belongs_to :
+- has_many :items
 
 ------------------------------------
 ## 商品/カテゴリー
@@ -115,7 +115,8 @@
 
 ### Association
 
-- belongs_to :user
+- has_many :items
+- has_many :categories
 - has_many :products_image
 
 ------------------------------------
