@@ -30,7 +30,7 @@
 |price|integer|null: false|
 |size|string|null: false|
 |content|text|null: false|
-|status|type|null: false|
+|status|string|null: false|
 
 ### Association
 
@@ -121,7 +121,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|categoriy_id|integer|null: false, foreign_key: true|
+|category_id|integer|null: false, foreign_key: true|
 |item_id|integer|null: false, foreign_key: true|
 
 ### Association
