@@ -10,16 +10,20 @@
 |password|string|null: false|
 |nickname|string|null: false|
 |name|string|null: false|
-|name-kana|string|null: false|
-|birthdate|string|null: false|
-|phone|string|null: false|
+|name_kana|string|null: false|
+|birthdate|integer|null: false|
+|phone|integer|null: false|
 
 
 ### Association
 
-- has_many :products
+
 - has_many :credits
 - has_many :items
+- has_many :comments
+
+
+
 
 ------------------------------------
 ## 商品
@@ -27,12 +31,16 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|itemname|----|-------|
-|price|----|-------|
-|image|----|-------|
-|size|----|-------|
-|content|----|-------|
-|status|----|-------|
+
+
+
+|item_name|string|-------|
+|image|text|-------|
+|price|integer|-------|
+|size|string|-------|
+|content|text|-------|
+|status|type|-------|
+
 
 ### Association
 
@@ -48,13 +56,12 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|itemname|----|-------|
-|price|----|-------|
-|region|----|-------|
-|city|----|-------|
-||----|-------|
-|------|----|-------|
-|------|----|-------|
+|item_name|string|-------|
+|price|integer|-------|
+|region|string|-------|
+|city|string|-------|
+|block|string|-------|
+|shipMethod|string|-------|
 
 ### Association
 
@@ -67,6 +74,10 @@
 
 |Column|Type|Options|
 |------|----|-------|
+|credit_cardapproval_code|integer|-------|
+|Exp|integer|-------|
+|security_cord|integer|-------|
+|user_id|integer|-------|
 
 ### Association
 
@@ -78,6 +89,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
+|comment|text|-------|
+|user_id|integer|-------|
 
 ### Association
 
@@ -90,6 +103,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
+|title|string|-------|
+
 
 ### Association
 
@@ -101,6 +116,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
+|brand|string|-------|
 
 ### Association
 
@@ -112,12 +128,18 @@
 
 |Column|Type|Options|
 |------|----|-------|
+|categoriy_id|integer|-------|
+|item_id|integer|-------|
 
 ### Association
+
 
 - has_many :items
 - has_many :categories
 - has_many :products_image
+
+
+
 
 ------------------------------------
 
