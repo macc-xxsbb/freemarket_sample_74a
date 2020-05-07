@@ -31,9 +31,6 @@
 
 |Column|Type|Options|
 |------|----|-------|
-
-
-
 |item_name|string|-------|
 |image|text|-------|
 |price|integer|-------|
