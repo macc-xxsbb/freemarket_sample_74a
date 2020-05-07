@@ -30,7 +30,8 @@
 |price|integer|null: false|
 |size|string|null: false|
 |content|text|null: false|
-|status|string|null: false|
+|status|integer|null: false|
+|category_id|integer|null: false, foreign_key: true|
 
 ### Association
 
@@ -39,8 +40,7 @@
 - has_many :comments
 - belongs_to :shipping
 - belongs_to :brand
-- has_many :categories,through: items_categories
-- has_many :items_categories
+- has_many :categories
 
 ------------------------------------
 ## 発送
@@ -49,12 +49,12 @@
 |Column|Type|Options|
 |------|----|-------|
 |item_name|string|null: false|
-|shipBase|integer|null: false|
+|ship_Base|integer|null: false|
 |region|string|null: false|
 |city|string|null: false|
 |block|string|null: false|
-|shipMethod|string|null: false|
-|shipDate|string|null: false|
+|ship_method|string|null: false|
+|ship_date|string|null: false|
 |item_id|integer|null: false, foreign_key: true|
 
 ### Association
@@ -68,7 +68,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |credit_cardapproval_code|integer|null: false, unique: true|
-|Exp|integer|null: false|
+|exp|integer|null: false|
 |security_cord|integer|null: false|
 |user_id|integer|null: false, foreign_key: true|
 
@@ -84,6 +84,7 @@
 |------|----|-------|
 |comment|text|null: false|
 |user_id|integer|null: false, foreign_key: true|
+|item_id|integer|null: false, foreign_key: true|
 
 ### Association
 
@@ -100,8 +101,7 @@
 
 ### Association
 
-- has_many :items_categories
-- has_many :items,through: items_categories
+- belongs_to :item
 
 ------------------------------------
 ## ブランド
