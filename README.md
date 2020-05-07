@@ -14,16 +14,11 @@
 |birthdate|integer|null: false|
 |phone|integer|null: false|
 
-
 ### Association
-
 
 - has_many :credits
 - has_many :items
 - has_many :comments
-
-
-
 
 ------------------------------------
 ## 商品
@@ -36,7 +31,6 @@
 |size|string|null: false|
 |content|text|null: false|
 |status|type|null: false|
-
 
 ### Association
 
@@ -66,7 +60,6 @@
 ### Association
 
 - belongs_to :item
-
 
 ------------------------------------
 ## クレジットカード
@@ -105,12 +98,10 @@
 |------|----|-------|
 |title|string|null: false|
 
-
 ### Association
 
 - has_many :items_categories
 - has_many :items,through: items_categories
-
 
 ------------------------------------
 ## ブランド
@@ -137,7 +128,6 @@
 
 - belongs_to :item
 - belongs_to :category
-
 
 ------------------------------------
 ## ブランド
