@@ -31,12 +31,11 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|item_name|string|-------|
-|image|text|-------|
-|price|integer|-------|
-|size|string|-------|
-|content|text|-------|
-|status|type|-------|
+|item_name|string|null: false|
+|price|integer|null: false|
+|size|string|null: false|
+|content|text|null: false|
+|status|type|null: false|
 
 
 ### Association
@@ -46,6 +45,8 @@
 - has_many :comments
 - belongs_to :shipping
 - belongs_to :brand
+- has_many :categories,through: items_categories
+- has_many :items_categories
 
 ------------------------------------
 ## 発送
@@ -53,12 +54,14 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|item_name|string|-------|
-|price|integer|-------|
-|region|string|-------|
-|city|string|-------|
-|block|string|-------|
-|shipMethod|string|-------|
+|item_name|string|null: false|
+|shipBase|integer|null: false|
+|region|string|null: false|
+|city|string|null: false|
+|block|string|null: false|
+|shipMethod|string|null: false|
+|shipDate|string|null: false|
+|item_id|integer|null: false, foreign_key: true|
 
 ### Association
 
@@ -71,10 +74,10 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|credit_cardapproval_code|integer|-------|
-|Exp|integer|-------|
-|security_cord|integer|-------|
-|user_id|integer|-------|
+|credit_cardapproval_code|integer|null: false, unique: true|
+|Exp|integer|null: false|
+|security_cord|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
 
 ### Association
 
@@ -86,8 +89,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|comment|text|-------|
-|user_id|integer|-------|
+|comment|text|null: false|
+|user_id|integer|null: false, foreign_key: true|
 
 ### Association
 
@@ -100,12 +103,14 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|title|string|-------|
+|title|string|null: false|
 
 
 ### Association
 
-- belongs_to :item_category
+- has_many :items_categories
+- has_many :items,through: items_categories
+
 
 ------------------------------------
 ## ブランド
@@ -113,7 +118,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|brand|string|-------|
+|brand|string|null: false|
 
 ### Association
 
@@ -125,15 +130,14 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|categoriy_id|integer|-------|
-|item_id|integer|-------|
+|categoriy_id|integer|null: false, foreign_key: true|
+|item_id|integer|null: false, foreign_key: true|
 
 ### Association
 
+- belongs_to :item
+- belongs_to :category
 
-- has_many :items
-- has_many :categories
-- has_many :products_image
 
 ------------------------------------
 ## ブランド
@@ -141,49 +145,11 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|imege|text|-------|
-|item_id|integer|-------|
+|imege|text|null: false|
+|item_id|integer|null: false, foreign_key: true|
 
 ### Association
 
 - belongs_to :item
-
-------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-追加事項
-
-
------------------------------------
-## snsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-
-### Association
-
-- belongs_to :
-- belongs_to :
-
-------------------------------------
-## favoritesテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-
-### Association
-
-- belongs_to :
-- belongs_to :
 
 ------------------------------------
