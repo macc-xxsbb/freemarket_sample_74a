@@ -42,7 +42,7 @@
 ### Association
 
 - belongs_to :user
-- has_many :products_image
+- has_many :item_images
 - has_many :comments
 - belongs_to :shipping
 - belongs_to :brand
@@ -135,11 +135,20 @@
 - has_many :categories
 - has_many :products_image
 
+------------------------------------
+## ブランド
+## item_imegesテーブル
 
+|Column|Type|Options|
+|------|----|-------|
+|imege|text|-------|
+|item_id|integer|-------|
 
+### Association
+
+- belongs_to :item
 
 ------------------------------------
-
 
 
 
