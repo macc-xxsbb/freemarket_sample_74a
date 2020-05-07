@@ -49,7 +49,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |item_name|string|null: false|
-|ship_Base|integer|null: false|
+|ship_base|integer|null: false|
 |region|string|null: false|
 |city|string|null: false|
 |block|string|null: false|
@@ -116,20 +116,7 @@
 - has_many :items
 
 ------------------------------------
-## 商品/カテゴリー
-## items_categoriesテーブル
 
-|Column|Type|Options|
-|------|----|-------|
-|category_id|integer|null: false, foreign_key: true|
-|item_id|integer|null: false, foreign_key: true|
-
-### Association
-
-- belongs_to :item
-- belongs_to :category
-
-------------------------------------
 ## ブランド
 ## item_imegesテーブル
 
