@@ -1,2 +1,182 @@
-%h1 Items#index
-%p Find me in app/views/items/index.html.erb
+.header
+  .header__innner
+    .header__inner__main
+      .header__inner__main__logo
+        = link_to root_path, class:"furima_logo" do
+          = image_tag "logo.png", size: "130x50"
+
+      .header__inner__main__search
+        %form
+          %input{:placeholder => "キーワードから探す", :type => "text", :size => "100", :class => "search_box"}/
+          %button
+            = link_to "#", class:"search_logo" do
+              = image_tag "icon-search 1.png", size: "20x20"
+
+        .header__inner__nav
+          .header__inner__nav__list
+            %ul.header__inner__nav__left
+              %li.header__inner__nav--left__first
+              = link_to "カテゴリー", "#"
+              %li.header__inner__nav--left__secound
+              = link_to "ブランド", "#"
+
+            %ul.header__inner__nav__right
+              %li.header__inner__nav--right__first
+              = link_to "ログイン", "#"
+              %li.header__inner__nav--right__secound
+              = link_to "新規会員登録", "#"
+
+
+.main__one
+  %h.main__one__content__one
+    人生をかえるフリマアプリ
+  %p.main__one__content__two
+    FURIMAはだれでもかんたんに出品・購入できる
+  %p.main__one__content__three
+    フリマアプリです
+  
+
+.main__two
+  %b
+    FURIMAが選ばれる3つの理由
+  %ul.photo__series
+    %li.photo__one
+      .photo__one__picture
+        = image_tag "pict-reason-01.jpg", size: "300x300"
+      %b
+        ３分ですぐに出品
+      %p
+        スマホで入力するだけで簡単に出品で
+      %p
+        きる！
+    %li.photo__two
+      .photo__two__picture
+        = image_tag "pict-reason-02.jpg", size: "300x300"
+      %b
+        シンプルで使いやすい
+      %p
+        めんどくさい入力は必要なく、検索も
+      %p
+        購入もスムーズ！
+    %li.photo__three
+      .photo__three__picture
+        = image_tag "pict-reason-03.jpg", size: "300x300"
+      %b
+        手数料業界最安
+      %p
+        最大３％でお得に出品＆購入！
+
+.main__three
+  %h.main__three__content__one
+    人生をかえるフリマアプリ
+  %p.main__three__content__two
+    FURIMAはだれでもかんたんに出品・購入できる
+  %p.main__three__content__three
+    フリマアプリです
+
+.main__four
+  %b
+    FURIMAの特徴
+  %ul.photo__series__secound
+    %li.photo__four
+      .photo__four__picture
+        = image_tag "icon-01.png", size: "300x300"
+      %b
+        簡単に売り買いできる
+      %p
+        スマホひとつで、いつでもどこでも簡単
+      %p
+        に出品・購入が可能！
+    %li.photo__five
+      .photo__five__picture
+        = image_tag "icon-03.png", size: "300x300"
+      %b
+        売上金は即日振込みに対応
+      %p
+        午前９時までに振込み
+      %p
+        あああ
+    %li.photo__six
+      .photo__six__picture
+        = image_tag "icon-04.png", size: "300x300"
+      %b
+        あああ
+      %p
+        あああ
+      %p
+        あああ
+  
+
+.main__five
+  .main__five__one
+    %b.pickup__category
+      ピックアップカテゴリー
+    %h1.pickup__category
+    = link_to "新規投稿商品", "#"
+    %ul.photo__series__third
+      %li.photo__seven
+        = image_tag "pict-reason-01.jpg", size: "300x300"
+      %li.photo__eight
+        = image_tag "pict-reason-02.jpg", size: "300x300"
+      %li.photo__nine
+        = image_tag "pict-reason-03.jpg", size: "300x300"
+
+  .main__five__two
+    %b.pickup__brand
+      ピックアップブランド
+    %h2.pickup__brand
+    = link_to "アーカイバ", "#"
+    .photo__series__four
+      .photo__ten
+      = image_tag "pict-reason-01.jpg", size: "300x300"
+      .photo__eleven
+      = image_tag "pict-reason-02.jpg", size: "300x300"
+      .photo__twelve
+      = image_tag "pict-reason-03.jpg", size: "300x300"
+
+.banner
+  %h.banner__content__one
+    人生をかえるフリマアプリ
+  %p.banner__content__two
+    FURIMAはだれでもかんたんに出品・購入できる
+  %p.banner__content__three
+    フリマアプリです
+
+
+.footer
+  .footer__main
+    .footer__main__info
+      %ul
+        %h.footer__main__info__title
+        FURIMAについて
+        %li
+        = link_to "会社概要", "#", calss:"footer__main__info__content"
+        %li
+        = link_to "プライバシーポリシー", "#", calss:"footer__main__info__content"
+        %li
+        = link_to "FURIMA利用規約", "#", calss:"footer__main__info__content"
+        %li
+        = link_to "ポイントに関する特約", "#", calss:"footer__main__info__content"
+      %ul
+        %h.footer__main__info__title
+        FURIMAを見る
+        %li
+        = link_to "カテゴリー一覧", "#", calss:"footer__main__info__content"
+        %li
+        = link_to "ブランド一覧", "#", calss:"footer__main__info__content"
+      %ul
+        %h.footer__main__info__title
+        ヘルプ＆ガイド
+        %li
+        = link_to "FURIMAガイド", "#", calss:"footer__main__info__content"
+        %li
+        = link_to "FURIMAロゴ利用ガイドライン", "#", calss:"footer__main__info__content"
+        %li
+        = link_to "お知らせ", "#", calss:"footer__main__info__content"
+    .footer__logo
+      = link_to root_path, class:"furima_logo_white" do
+        = image_tag "logo-white.png", size: "130x50"
+      
+      %div
+      = link_to "#", class:"camera_logo" do
+        = image_tag "icon_camera.png", size: "80x50"

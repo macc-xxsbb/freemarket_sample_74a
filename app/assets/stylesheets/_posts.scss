@@ -1,0 +1,56 @@
+.banner {
+  height: 400px;
+  background-image: url("bg-appBanner-pict.jpg");
+  background-size: cover;
+
+}
+
+.footer {
+
+  &__main {
+    height: 400px;
+    width: 100%;
+    background-color: rgb(53, 53, 53);
+
+    &__info {
+      display: flex;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      margin-bottom: 150px;
+
+      a {
+        text-decoration: none;
+        color: white;
+        font-size: 12px;
+       
+      }
+
+      
+    }
+
+    .footer__logo {
+      color: white;
+      
+      .furima_logo_white {
+        margin-left: 620px;
+        margin-top: 300px;
+
+        .footer__content {
+          margin-left: 620px;
+        }
+        
+      }
+      
+      .camera_logo {
+        position: fixed;
+        width: 80px;
+        bottom: 32px;
+        right: 32px;
+        background-color: rgb(53, 194, 219);
+        padding: 15px;
+        border-radius: 4%;
+      }
+    }
+  }
+}
