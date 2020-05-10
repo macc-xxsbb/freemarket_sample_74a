@@ -1,0 +1,82 @@
+.main__one {
+  height: 560px;
+  background-image: url("bg-mainVisual-pict_pc.jpg");
+  background-size: cover;
+  color: white;
+  
+}
+
+
+
+.main__two {
+  height: 560px;
+  width: 100%;
+  text-align: center;
+  margin-top: 100px;
+
+  .photo__series {
+    display: flex;
+    justify-content: center;
+
+  }
+}
+
+.main__three {
+  height: 400px;
+  background-image: url("bg-topMiddleDl-pict.jpg");
+  background-size: cover;
+  color: white;
+  
+}
+
+.main__four {
+  height: 560px;
+  width: 100%;
+  text-align: center;
+
+  .photo__series__secound {
+    display: flex;
+    justify-content: center;
+  }
+  .photo__series__secound__content {
+
+  }
+
+
+
+}
+
+.main__five {
+  background-color: rgb(236, 234, 234);
+
+  &__one {
+    height: 350px;
+    width: 100%;
+    text-align: center;
+    padding-top: 100px;
+
+    .photo__series__third {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__two {
+    height: 350px;
+    width: 100%;
+    text-align: center;
+    margin-top: 150px;
+    padding-bottom: 150px;
+    
+
+    .pickup__brand {
+      font-size: 20px;
+    }
+
+    .photo__series__four {
+      display: flex;
+      justify-content: center;
+    }
+
+  }
+}

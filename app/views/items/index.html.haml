@@ -1,2 +1,136 @@
-%h1 Items#index
-%p Find me in app/views/items/index.html.erb
+.header
+  .header__innner
+    .header__inner__main
+      .header__inner__main__logo
+        = link_to root_path, class:"furima_logo" do
+          = image_tag "logo.png", size: "130x50"
+
+      .header__inner__main__search
+        %form
+          %input{:placeholder => "キーワードから探す", :type => "text", :size => "100", :class => "search_box"}/
+          %button
+            = link_to "#", class:"search_logo" do
+              = image_tag "icon-search 1.png", size: "20x20"
+
+        .header__inner__nav
+          .header__inner__nav__list
+            %ul.header__inner__nav__left
+              %li.header__inner__nav--left__first
+              = link_to "カテゴリー", "#"
+              %li.header__inner__nav--left__secound
+              = link_to "ブランド", "#"
+
+            %ul.header__inner__nav__right
+              %li.header__inner__nav--right__first
+              = link_to "ログイン", "#"
+              %li.header__inner__nav--right__secound
+              = link_to "新規会員登録", "#"
+
+
+.main__one
+  %h
+    人生をかえるフリマアプリ
+  %p
+    FURIMAはだれでもかんたんに出品・購入できる
+  %p
+    フリマアプリです
+  
+
+.main__two
+  FURIMAが選ばれる3つの理由
+  .photo__series
+    .photo__one
+    = image_tag "pict-reason-01.jpg", size: "300x300"
+    .photo__two
+    = image_tag "pict-reason-02.jpg", size: "300x300"
+    .photo__three
+    = image_tag "pict-reason-03.jpg", size: "300x300"
+
+.main__three
+
+.main__four
+  FURIMAの特徴
+  .photo__series__secound
+    .photo__four
+    = image_tag "icon-01.png", size: "300x300"
+    .photo__five
+    = image_tag "icon-03.png", size: "300x300"
+    .photo__six
+    = image_tag "icon-04.png", size: "300x300"
+  .photo__series__secound__content
+  %h
+  ああああ
+  %h
+  いいいい
+  %h
+  うううう
+
+.main__five
+  .main__five__one
+    %h3.pickup__category
+    ピックアップカテゴリー
+    %h3.pickup__category
+    = link_to "新規投稿商品", "#"
+    .photo__series__third
+      .photo__seven
+      = image_tag "pict-reason-01.jpg", size: "300x300"
+      .photo__eight
+      = image_tag "pict-reason-02.jpg", size: "300x300"
+      .photo__nine
+      = image_tag "pict-reason-03.jpg", size: "300x300"
+
+  .main__five__two
+    %h4.pickup__brand
+    ピックアップブランド
+    %h4.pickup__brand
+    = link_to "アーカイバ", "#"
+    .photo__series__four
+      .photo__ten
+      = image_tag "pict-reason-01.jpg", size: "300x300"
+      .photo__eleven
+      = image_tag "pict-reason-02.jpg", size: "300x300"
+      .photo__twelve
+      = image_tag "pict-reason-03.jpg", size: "300x300"
+
+
+
+
+.banner
+  = image_tag "bg-appBanner-pict.jpg", size: "1440x400"
+
+
+.footer
+  .footer__main
+    .footer__main__info
+      %ul
+        FURIMAについて
+        %li
+        = link_to "会社概要", "#", calss:"footer__main__info__content"
+        %li
+        = link_to "プライバシーポリシー", "#", calss:"footer__main__info__content"
+        %li
+        = link_to "FURIMA利用規約", "#", calss:"footer__main__info__content"
+        %li
+        = link_to "ポイントに関する特約", "#", calss:"footer__main__info__content"
+      %ul
+        FURIMAを見る
+        %li
+        = link_to "カテゴリー一覧", "#", calss:"footer__main__info__content"
+        %li
+        = link_to "ブランド一覧", "#", calss:"footer__main__info__content"
+      %ul
+        ヘルプ＆ガイド
+        %li
+        = link_to "FURIMAガイド", "#", calss:"footer__main__info__content"
+        %li
+        = link_to "FURIMAロゴ利用ガイドライン", "#", calss:"footer__main__info__content"
+        %li
+        = link_to "お知らせ", "#", calss:"footer__main__info__content"
+    .footer__logo
+      = link_to root_path, class:"furima_logo_white" do
+        = image_tag "logo-white.png", size: "130x50"
+      %p.footer__content
+      ああああ
+      
+      = link_to "#", class:"camera_logo" do
+        = image_tag "icon_camera.png", size: "80x50"

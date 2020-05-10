@@ -1,0 +1,57 @@
+.header {
+  height: 110px;
+  
+  
+  &__inner {
+
+  &__main {
+      display: flex;
+      justify-content: center;
+
+      &__logo {
+        
+        .furima_logo {
+          line-height: 110px;
+          margin-right: 50px;
+        }
+      }
+
+      &__search {
+        margin-top: 10px;
+        .search_logo {
+          
+        }
+        
+
+      }
+
+    
+
+
+        .header__inner__nav {
+          
+          &__list {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 13px;
+
+            .header__inner__nav__left {
+              display: flex;
+              
+            }
+  
+            .header__inner__nav__right {
+              display: flex;
+            }
+  
+            a {
+              text-decoration: none;
+              margin: 10px;
+              color: black;
+            }
+          }
+        }
+    }
+  }
+}
+
