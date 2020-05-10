@@ -7,5 +7,32 @@
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    .header
+      .header__innner
+        .header__inner__main
+          .header__inner__main__logo
+            = link_to root_path, class:"furima_logo" do
+              = image_tag "logo.png", size: "130x50"
+
+          .header__inner__main__search
+            %form
+              %input{:placeholder => "キーワードから探す", :type => "text", :size => "100", :class => "search_box"}/
+              %button
+                = link_to "#", class:"search_logo" do
+                  = image_tag "icon-search 1.png", size: "20x20"
+
+            .header__inner__nav
+              .header__inner__nav__list
+                %ul.header__inner__nav__left
+                  %li.header__inner__nav--left__first
+                  = link_to "カテゴリー", "#"
+                  %li.header__inner__nav--left__secound
+                  = link_to "ブランド", "#"
+
+                %ul.header__inner__nav__right
+                  %li.header__inner__nav--right__first
+                  = link_to "ログイン", "#"
+                  %li.header__inner__nav--right__secound
+                  = link_to "新規会員登録", "#"
   %body
     = yield
