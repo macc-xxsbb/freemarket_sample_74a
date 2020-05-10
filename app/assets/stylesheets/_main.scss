@@ -3,9 +3,22 @@
   background-image: url("bg-mainVisual-pict_pc.jpg");
   background-size: cover;
   color: white;
-  
-}
 
+  .main__one__content__one {
+    margin-left: 100px;
+    font-size: 80px;
+    margin-top: 400px;
+  }
+  .main__one__content__two {
+    margin-left: 100px;
+    font-size: 20px;
+  }
+
+  .main__one__content__three {
+    margin-left: 100px;
+    font-size: 20px;
+  }
+}
 
 
 .main__two {
@@ -18,6 +31,17 @@
     display: flex;
     justify-content: center;
 
+    .photo__one {
+      margin: 20px;
+    }
+
+    .photo__two {
+      margin: 20px;
+    }
+
+    .photo__three {
+      margin: 20px;
+    }
   }
 }
 
@@ -30,6 +54,7 @@
 }
 
 .main__four {
+  margin-top: 100px;
   height: 560px;
   width: 100%;
   text-align: center;
@@ -37,10 +62,20 @@
   .photo__series__secound {
     display: flex;
     justify-content: center;
-  }
-  .photo__series__secound__content {
 
+    .photo__four {
+      margin: 20px;
+    }
+
+    .photo__five {
+      margin: 20px;
+    }
+
+    .photo__six {
+      margin: 20px;
+    }
   }
+  
 
 
 
@@ -55,9 +90,14 @@
     text-align: center;
     padding-top: 100px;
 
+    .pickup__category {
+      margin: 10px;
+    }
+
     .photo__series__third {
       display: flex;
       justify-content: center;
+      
     }
   }
 
@@ -70,7 +110,7 @@
     
 
     .pickup__brand {
-      font-size: 20px;
+      margin: 10px;
     }
 
     .photo__series__four {

@@ -1,5 +1,7 @@
 .banner {
   height: 400px;
+  background-image: url("bg-appBanner-pict.jpg");
+  background-size: cover;
 
 }
 
@@ -12,14 +14,23 @@
 
     &__info {
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
       color: white;
       text-decoration: none;
       margin-bottom: 150px;
 
+      &__title {
+        // margin: 70px;
+        
+
+      }
+      
+
       a {
         text-decoration: none;
         color: white;
+        font-size: 12px;
+        // margin: 30px;
       }
 
       
