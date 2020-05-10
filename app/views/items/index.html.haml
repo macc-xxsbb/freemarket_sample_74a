@@ -9,14 +9,14 @@
   
 
 .main__two
-  %b
+  %b.main__two__title
     FURIMAが選ばれる3つの理由
   %ul.photo__series
     %li.photo__one
       .photo__one__picture
         = image_tag "pict-reason-01.jpg", size: "300x300"
       %b
-        ３分ですぐに出品
+        ３分 ですぐに出品
       %p
         スマホで入力するだけで簡単に出品で
       %p
@@ -25,7 +25,7 @@
       .photo__two__picture
         = image_tag "pict-reason-02.jpg", size: "300x300"
       %b
-        シンプルで使いやすい
+        シンプル で使いやすい
       %p
         めんどくさい入力は必要なく、検索も
       %p
@@ -34,7 +34,7 @@
       .photo__three__picture
         = image_tag "pict-reason-03.jpg", size: "300x300"
       %b
-        手数料業界最安
+        手数料 業界最安
       %p
         最大３％でお得に出品＆購入！
 
@@ -49,7 +49,7 @@
     ほしかったあの商品に出会えるかもしれません。
 
 .main__four
-  %b
+  %b.main__four__title
     FURIMAの特徴
   %ul.photo__series__secound
     %li.photo__four
@@ -87,28 +87,29 @@
   .main__five__one
     %b.pickup__category
       ピックアップカテゴリー
-    %h1.pickup__category
+    %h1.pickup__category__link
     = link_to "新規投稿商品", "#"
     %ul.photo__series__third
       %li.photo__seven
-        = image_tag "pict-reason-01.jpg", size: "300x300"
+        = link_to image_tag("pict-reason-01.jpg", size: "300x300"), "#"
       %li.photo__eight
-        = image_tag "pict-reason-02.jpg", size: "300x300"
+        = link_to image_tag("pict-reason-02.jpg", size: "300x300"), "#"
       %li.photo__nine
-        = image_tag "pict-reason-03.jpg", size: "300x300"
+        = link_to image_tag("pict-reason-03.jpg", size: "300x300"), "#"
+        
 
   .main__five__two
     %b.pickup__brand
       ピックアップブランド
     %h2.pickup__brand
     = link_to "アーカイバ", "#"
-    .photo__series__four
-      .photo__ten
-      = image_tag "pict-reason-01.jpg", size: "300x300"
-      .photo__eleven
-      = image_tag "pict-reason-02.jpg", size: "300x300"
-      .photo__twelve
-      = image_tag "pict-reason-03.jpg", size: "300x300"
+    %ul.photo__series__four
+      %li.photo__ten
+        = link_to image_tag("pict-reason-01.jpg", size: "300x300"), "#"
+      %li.photo__eleven
+        = link_to image_tag("pict-reason-02.jpg", size: "300x300"), "#"
+      %li.photo__twelve
+        = link_to image_tag("pict-reason-03.jpg", size: "300x300"), "#"
 
 .banner
   %h.banner__content__one
