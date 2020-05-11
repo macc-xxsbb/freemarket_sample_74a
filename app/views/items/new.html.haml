@@ -182,12 +182,9 @@
         より処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
 .product__footer
   .product__footer__link
-    %a{href: '/'}
-      プライバシーポリシー
-    %a{href: '/'}
-      フリマ利用規約
-    %a{href: '/'}
-      特定商取引に関する表記
+    = link_to 'プライバシーポリシー', '/', class: 'footer-link'
+    = link_to 'フリマ利用規約', '/', class: 'footer-link'
+    = link_to '特定商取引に関する表記', '/', class: 'footer-link'
   .product__footer__logo
     = image_tag('logo-white', height: '49', width: '185')
   %p.logo__tag 
