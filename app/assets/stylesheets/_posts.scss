@@ -1,6 +1,6 @@
 .banner {
   height: 400px;
-  background-image: url("bg-appBanner-pict.jpg");
+  background-image: image-url("bg-appBanner-pict.jpg");
   background-size: cover;
   color: white;
 
@@ -19,12 +19,17 @@
       color: white;
       text-decoration: none;
       margin-bottom: 150px;
+      padding-top: 20px;
+      
+      &__title {
+        margin: 30px;
+      }
 
       a {
         text-decoration: none;
         color: white;
         font-size: 12px;
-       
+        margin: 70px;
       }
 
       
