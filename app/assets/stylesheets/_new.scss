@@ -4,7 +4,6 @@
 @mixin edit {
   background-color: #FF0211;
   color: #FFFFFF;
-  
 }
 .required {
   @include edit;
@@ -102,7 +101,7 @@
         }
       }
     }
-    }
+  }
     .item-show {
       border-bottom: solid 1px rgba(245, 245, 245, 0.479);
       padding: 40px;
@@ -148,7 +147,7 @@
           padding: 0 56px 0 16px;
         }
     }
-    }
+  }
     .item-price {
       border-bottom: solid 1px rgba(245, 245, 245, 0.479);
       padding: 40px;
