@@ -1,12 +1,16 @@
 .main__one
-  .main_one__image
-  %h.main__one__content__one
-    人生をかえるフリマアプリ
-  %p.main__one__content__two
-    FURIMAはだれでもかんたんに出品・購入できる
-  %p.main__one__content__three
-    フリマアプリです
-  
+  .main__one__content
+    %h.main__one__content__subtitle
+      %br
+      人生を変えるフリマアプリ
+
+    %p.content__text
+      FURIMAはだれでもかんたんに出品・購入できる
+      %br
+      フリマアプリです
+    .content__btn
+      = link_to image_tag("http://furima.tokyo/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg", size: "150x80"), "#"
+      = link_to image_tag("http://furima.tokyo/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg", size: "150x80"), "#"
 
 .main__two
   %b.main__two__title
@@ -39,14 +43,18 @@
         最大３％でお得に出品＆購入！
 
 .main__three
-  %h.main__three__content__one
-    会員数日本一位
-  %p.main__three__content__two
-    FURIMAは、フリマアプリで最も人気。
-  %p.main__three__content__three
-    出品・購入回数も業界最多です！
-  %p.main__three__content__three
-    ほしかったあの商品に出会えるかもしれません。
+  .main__three__content
+    %h.main__three__content__subtitle
+      会員数日本一位
+
+    %p.content__text
+      FURIMAはだれでもかんたんに出品・購入できる
+      %br
+      フリマアプリです
+    .content__btn
+      = link_to image_tag("http://furima.tokyo/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg", size: "150x80"), "#"
+      = link_to image_tag("http://furima.tokyo/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg", size: "150x80"), "#"
+
 
 .main__four
   %b.main__four__title
@@ -85,39 +93,112 @@
 
 .main__five
   .main__five__one
-    %b.pickup__category
+    %h2.head
       ピックアップカテゴリー
-    %h1.pickup__category__link
-    = link_to "新規投稿商品", "#"
-    %ul.photo__series__third
-      %li.photo__seven
-        = link_to image_tag("pict-reason-01.jpg", size: "300x300"), "#"
-      %li.photo__eight
-        = link_to image_tag("pict-reason-02.jpg", size: "300x300"), "#"
-      %li.photo__nine
-        = link_to image_tag("pict-reason-03.jpg", size: "300x300"), "#"
-        
+
+    .product__box
+      .product__head
+        %h3.title
+          = link_to "新規投稿商品", "#"
+
+
+      .product__lists
+        .product__list
+          %figure.product__list__img
+            = link_to image_tag("pict-reason-03.jpg", size: "250x250")
+          .product__list__body
+            %h3.name
+              product
+            .details
+              %ul
+                %li
+                  30000円
+              %p
+                (税込)
+        .product__list
+          %figure.product__list__img
+            = link_to image_tag("pict-reason-03.jpg", size: "250x250")
+          .product__list__body
+            %h3.name
+              product
+            .details
+              %ul
+                %li
+                  30000円
+              %p
+                (税込)
+
+        .product__list
+          %figure.product__list__img
+            = link_to image_tag("pict-reason-03.jpg", size: "250x250")
+          .product__list__body
+            %h3.name
+              product
+            .details
+              %ul
+                %li
+                  30000円
+              %p
+                (税込)
 
   .main__five__two
-    %b.pickup__brand
+    %h2.head
       ピックアップブランド
-    %h2.pickup__brand
-    = link_to "アーカイバ", "#"
-    %ul.photo__series__four
-      %li.photo__ten
-        = link_to image_tag("pict-reason-01.jpg", size: "300x300"), "#"
-      %li.photo__eleven
-        = link_to image_tag("pict-reason-02.jpg", size: "300x300"), "#"
-      %li.photo__twelve
-        = link_to image_tag("pict-reason-03.jpg", size: "300x300"), "#"
+
+    .product__box
+      .product__head
+        %h3.title
+          = link_to "アーカイバ", "#"
+
+
+      .product__lists
+        .product__list
+          %figure.product__list__img
+            = link_to image_tag("pict-reason-03.jpg", size: "250x250")
+          .product__list__body
+            %h3.name
+              product
+            .details
+              %ul
+                %li
+                  30000円
+              %p
+                (税込)
+        .product__list
+          %figure.product__list__img
+            = link_to image_tag("pict-reason-03.jpg", size: "250x250")
+          .product__list__body
+            %h3.name
+              product
+            .details
+              %ul
+                %li
+                  30000円
+              %p
+                (税込)
+
+        .product__list
+          %figure.product__list__img
+            = link_to image_tag("pict-reason-03.jpg", size: "250x250")
+          .product__list__body
+            %h3.name
+              product
+            .details
+              %ul
+                %li
+                  30000円
+              %p
+                (税込)
 
 .banner
-  %h.banner__content__one
-    人生をかえるフリマアプリ
-  %p.banner__content__two
-    FURIMAはだれでもかんたんに出品・購入できる
-  %p.banner__content__three
-    フリマアプリです
+  .banner__inner
+    %h.banner__inner__title
+      だれでもかんたん、人生を変えるフリマアプリ
+    %p.banner__inner__text
+      今すぐ無料ダウンロード！
+    .content__btn
+    = link_to image_tag("http://furima.tokyo/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg", size: "150x80"), "#"
+    = link_to image_tag("http://furima.tokyo/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg", size: "150x80"), "#"
 
 
 .footer
