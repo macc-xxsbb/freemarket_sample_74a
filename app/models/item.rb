@@ -4,4 +4,5 @@ class Item < ApplicationRecord
   belongs_to: brand
   belongs_to: shipping
   has_many: item_images
+  has_many: comments
 end
