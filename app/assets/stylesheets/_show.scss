@@ -195,3 +195,138 @@
     }
   }
 }
+
+
+
+
+
+.conteiner{
+  margin: 40px auto 0;
+  width: 1020px;
+  display: flex;
+  line-height: 1;
+
+ &__side{
+   width: 280px;
+   margin: 0 40px 0 0;
+   background-color:#eee;
+
+   &__nav{
+     &__list{
+       -webkit-box-sizing: inherit;
+       box-sizing: inherit; 
+       display: block;  
+       margin-inline-start: 0px;
+       margin-inline-end: 0px;
+       font-size-adjust: 14px;
+       background-color: white;
+       &__item{
+         padding: 16px;
+         border-top: 1px solid #eee;
+       }
+     }
+     &__head{
+       font-size: 16px;
+       background-color: #eee;
+       display: block;
+       font-size: 1.17em;
+       margin-block-start: 1em;
+       margin-block-end: 1em;
+       margin-inline-start: 0px;
+       margin-inline-end: 0px;
+       font-weight: bold;
+     }
+   }
+ }
+ &__content{
+   background-color: #eee;
+   width: 700px;
+   display: block;
+   a{
+     display: block;
+     position: absolute;
+     top: 50%;
+     left: 0;
+     right: 0;
+     -webkit-transform: translate(0, -50%);
+     transform: translate(0, -50%);
+     color: #333;
+   }
+   &__user-icon{
+     height: 200px;
+     position: relative;
+     background-color: white;
+     &__img{
+       position: relative;
+       overflow: hidden;
+       width: 60px;
+       height: 60px;
+       margin: 0 auto;
+       border-radius: 50%;
+       vertical-align: middle;
+     }
+     &__name{
+       position: relative;
+       text-align: center;
+       margin: 8px 0 0;
+       font-size: 14px;
+     }
+     &__number{
+       margin: 8px 0 0;
+       text-align: center;
+     }
+   }
+   &__tab{
+     
+     &__head{
+       padding: 0 16px;
+       font-size: 16px;
+       line-height: 72px;
+     }
+     &__tabs{
+       display: flex;
+       border: 0;
+       background: white;
+       line-height: inherit;
+       box-sizing: inherit;
+       line-height: 72px;
+     }
+     
+     &__tabs li{
+       border-top: 2px solid #ea352d;
+       width: 50%;
+       display: inline-block;
+       text-align: center;
+       vertical-align: top;
+     }
+   }
+ }
+}
+// .footer{
+//  &__clearix{
+//    &__cell{
+//      &__head{
+
+//      }
+//    }
+//    &__full-width{
+//      &__head{
+
+//        }
+//      &__inner-cell{
+
+//      }
+//    }
+//    &__lang{
+//      &__head{
+
+//      }
+//    }
+//  }
+//  &__bottom{
+
+//  }
+//  &__copyright{
+
+//  }
+// }

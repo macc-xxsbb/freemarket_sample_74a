@@ -28,11 +28,15 @@
                   = link_to "カテゴリー", "#"
                   %li.header__inner__nav--left__secound
                   = link_to "ブランド", "#"
-
-                %ul.header__inner__nav__right
-                  %li.header__inner__nav--right__first
-                  = link_to "ログイン", new_user_registration_path
-                  %li.header__inner__nav--right__secound
-                  = link_to "新規会員登録", new_user_registration_path
+                - if user_signed_in?
+                  %ul.header__inner__nav__right
+                    %li.header__inner__nav--right__first
+                    = link_to "マイページ", user_path
+                - else
+                  %ul.header__inner__nav__right
+                    %li.header__inner__nav--right__first
+                    = link_to "ログイン", new_user_registration_path
+                    %li.header__inner__nav--right__secound
+                    = link_to "新規会員登録", new_user_registration_path
   %body
     = yield
