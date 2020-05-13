@@ -205,13 +205,17 @@
   width: 1020px;
   display: flex;
   line-height: 1;
-
+  padding: 0 0 40px;
+  background-color: #eee;
  &__side{
    width: 280px;
    margin: 0 40px 0 0;
    background-color:#eee;
 
    &__nav{
+     a{
+       text-decoration: none;
+     }
      &__list{
        -webkit-box-sizing: inherit;
        box-sizing: inherit; 
