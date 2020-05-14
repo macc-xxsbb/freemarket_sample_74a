@@ -11,8 +11,8 @@
 |nickname|string|null: false|
 |name|string|null: false|
 |name_kana|string|null: false|
-|birthdate|integer|null: false|
-|phone|integer|null: false|
+|birthdate|date|null: false|
+|phone|string|null: false|
 
 ### Association
 
@@ -117,7 +117,7 @@
 
 ------------------------------------
 
-## ブランド
+## 商品画像
 ## item_imegesテーブル
 
 |Column|Type|Options|

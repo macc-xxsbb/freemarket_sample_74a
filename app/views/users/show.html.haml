@@ -1,0 +1,24 @@
+.conteiner
+  = render "side_bar"
+  .conteiner__content
+    .conteiner__content__user-icon
+      = link_to do
+        .conteiner__content__user-icon__img
+          watanabe
+        %h2.conteiner__content__user-icon__name
+          masahito-watanabe
+        .conteiner__content__user-icon__number
+          評価 0  出品数 0
+    .conteiner__content__tab
+      %h2.conteiner__content__tab__head
+        購入した商品
+      %ul.conteiner__content__tab__tabs
+        %li<
+          %h3
+            取引中
+        %li<
+          %h3
+            過去の取引
+      %ul.conteiner__content__tab__content
+        %li<
+          取引中の商品がありません

@@ -9,10 +9,3 @@ one: {}
 #
 two: {}
 # column: value
-one:
-  prefecture_id: 1
-  city: MyString
-
-two:
-  prefecture_id: 1
-  city: MyString
