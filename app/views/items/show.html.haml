@@ -1,9 +1,11 @@
+
 .main
   .main__show
     .content__main
       .content__main__top
         .item-box
           %h2.item-box__title
+            
           .image__box__body
             %ul
               %li.image__box__list
@@ -16,33 +18,40 @@
                   %li.child
                     = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/15/a003.png", width: "75", height: "75"
           .item__box__price
-            %span ¥30000
+            %span ¥
+            = @item
             .item__box__price__data
               %span (税込み)
               %span  送料込み
           .item__datail
-            親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
+
           .table
             %table.table__main
               %tbody.table__main__body
                 %tr.table-tr
                   %th.table-th 出品者
-                  %td.table-td hoge
+                  %td.table-td 
+                    
                 %tr.table-tr
                   %th.table-th カテゴリー
                   %td.table-td
+                    = @categories
                 %tr.table-tr
                   %th.table-th ブランド
                   %td.table-td
+                    = @brands
                 %tr.table-tr
                   %th.table-th サイズ
                   %td.table-td
+
                 %tr.table-tr
                   %th.table-th 商品のサイズ
                   %td.table-td
+
                 %tr.table-tr
                   %th.table-th 商品の状態
-                  %td.table-td 未使用に近い
+                  %td.table-td
+
                 %tr.table-tr
                   %th.table-th 配送料の負担
                   %td.table-td 送料込み（出品者負担）
@@ -65,12 +74,13 @@
         .comment__box
           %ul.commentContents
           .form
-            %textarea.comment__body
+            = form_with model:@comment, local: true do |f|
+              = f.text_area :text, class: "comment__body"
             %P.notice
               相手のことを考えて丁寧なコメントを心がけましょう。
               %br
               不快な言葉遣いなどは利用制限や退会処分となることがあります。
-            %button.comment__button
+            %button.comment__button{name:'burron', type: 'submit'}
               = icon('fa fa-comment', class: 'comment')
               コメントする
       %ul.links
