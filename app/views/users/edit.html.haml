@@ -1,0 +1,9 @@
+.conteiner
+  = render "side_bar"
+  .conteiner__content
+    .conteiner__content__chapter
+      .conteiner__content__chapter__inner
+        .conteiner__content__chapter__inner__logout
+          %button.conteiner__content__chapter__inner__logout__button
+            = button_to "ログアウト", destroy_user_session_path, method: :delete ,class: "conteiner__content__chapter__inner__logout__button"
+            
