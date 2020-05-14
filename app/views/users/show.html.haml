@@ -1,52 +1,5 @@
 .conteiner
-  .conteiner__side
-    %nav.conteiner__side__nav
-      %ul.conteiner__side__nav__list
-        %li.conteiner__side__nav__list__item
-          = link_to  do
-            マイページ
-        %li.conteiner__side__nav__list__item
-          = link_to  do
-            出品する
-        %li.conteiner__side__nav__list__item
-          = link_to  do
-            出品した商品ー出品中
-        %li.conteiner__side__nav__list__item
-          = link_to  do
-            出品した商品ー取引中 
-        %li.conteiner__side__nav__list__item
-          = link_to  do
-            出品した商品ー売却済み
-        %li.conteiner__side__nav__list__item
-          = link_to  do
-            購入した商品ー取引中
-        %li.conteiner__side__nav__list__item
-          = link_to  do
-            購入した商品ー過去の取引
-      %h3.conteiner__side__nav__head
-        設定
-      %ul.conteiner__side__nav__list
-        %li.conteiner__side__nav__list__item
-          = link_to  do
-            プロフィール
-        %li.conteiner__side__nav__list__item
-          = link_to  do
-            発送元・お届け先住所変更
-        %li.conteiner__side__nav__list__item
-          = link_to  do
-            支払い方法
-        %li.conteiner__side__nav__list__item
-          = link_to  do
-            メール/パスワード
-        %li.conteiner__side__nav__list__item
-          = link_to  do
-            本人情報
-        %li.conteiner__side__nav__list__item
-          = link_to  do
-            電話番号の確認
-        %li.conteiner__side__nav__list__item
-          = link_to  do
-            ログアウト
+  = render "side_bar"
   .conteiner__content
     .conteiner__content__user-icon
       = link_to do
