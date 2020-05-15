@@ -6,6 +6,7 @@ class User < ApplicationRecord
   
   validates :name, :age ,presence: true
   has_one :address
+  has_one :credit_card, dependent: :destroy
 
         #  has_many :credits
         #  has_many :items
