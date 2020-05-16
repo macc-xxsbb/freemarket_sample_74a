@@ -26,7 +26,6 @@
         .item-explain__text
           = f.fields_for @item do |item|
             = item.text_field :item_name, class: "item-explain__text__form", placeholder: "40文字まで"
-          -# %input{autocomplete: "off", name:"name", placeholder: "40文字まで", type: "text", value: ""}
           %p 
             入力してください
           %label.label-edit 商品の説明
@@ -34,7 +33,6 @@
           .item-explain__text__textarea
             = f.fields_for @item do |item|
               = item.text_area :content, placeholder: "商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありませ\nん。あわせやすいのでおすすめです。"
-            -# %textarea{placeholder: "商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありませ\nん。あわせやすいのでおすすめです。"}
           %p
             入力してください
           .item-show
@@ -45,21 +43,6 @@
               %sapn.required 必須
               = f.fields_for @item do |item|
                 = item.select :category_id, Category.all.map { |category| [category.title, category.id] }, { selected: 14 } 
-              -# %select 
-              -#   %option 選択してください
-              -#   %option レディース
-              -#   %option メンズ
-              -#   %option ベビー・キッズ
-              -#   %option インテリア・住まい・小物
-              -#   %option 本・音楽・ゲーム
-              -#   %option おもちゃ・ホビー・グッズ
-              -#   %option コスメ・香水・美容
-              -#   %option 家電・スマホ・カメラ
-              -#   %option スポーツ・レジャー
-              -#   %option ハンドメイド
-              -#   %option チケット
-              -#   %option 自動車・オートバイ
-              -#   %option その他
               .choice
                 選択してください
       .item-show__list
@@ -67,7 +50,6 @@
         %sapn.item-show__list__any 任意
         = f.fields_for @brand do |brand|
           = brand.text_field :brand, placeholder: "例） シャネル"
-        -# %input{placeholder: "例） シャネル"}
         .choice
           選択してください
       .item-show__list
@@ -75,14 +57,6 @@
         %sapn.required 必須
         = f.fields_for @item do |item|
           = item.select :status, { "選択してください": 1, "新品・未使用": 2, "未使用に近い": 3, "目立った傷や汚れなし": 4, "やや傷や汚れあり": 5, "傷や汚れあり": 6, "全体的に状態が悪い": 7 }
-        -# %select
-        -#   %option 選択してください
-        -#   %option 新品・未使用
-        -#   %option 未使用に近い
-        -#   %option 目立った傷や汚れなし
-        -#   %option やや傷や汚れあり
-        -#   %option 傷や汚れあり
-        -#   %option 全体的に状態が悪い
         .choice
           選択してください
       .delivery
@@ -93,10 +67,6 @@
           %sapn.required 必須
           = f.fields_for @shipping do |shipping|
             = shipping.select :ship_base, { "選択してください": 1, "送料込み（出品者負担）": 2, "着払い（購入者負担）": 3 }
-            -# %select
-            -#   %option 選択してください
-            -#   %option 送料込み（出品者負担）
-            -#   %option 着払い（購入者負担）
             .choice
               選択してください
             .delivery__list
@@ -104,7 +74,6 @@
               = shipping.label :必須, {class: 'required'}
               .delivery__list__prefecture
                 = shipping.select :region, { "選択してください": 1, "東京都": 2, "大阪": 3, "福岡": 4 }
-                -# = shipping.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください", class: 'input'
             .choice
               選択してください
             .delivery__list
@@ -113,16 +82,6 @@
               = shipping.select :ship_date, { "選択してください": 1, "1日〜2日で発送": 2, "2日〜3日で発送": 3, "4日〜7日で発送": 4 }
               .choice
                 選択してください
-            -# .delivery__list
-            -#   %label.label-edit  発送までの日数
-            -#   %sapn.required 必須
-            -#   %select
-            -#     %option 選択してください
-            -#     %option 1日〜2日で発送
-            -#     %option 2日〜3日で発送
-            -#     %option 4日〜7日で発送
-            -# .choice
-            -#   選択してください
       .item-price
         %p
           価格（¥300〜9,999,999)
@@ -134,7 +93,6 @@
             %span ¥
             = f.fields_for @item do |item|
               = item.text_field :price, placeholder: "0"
-            -# %input{type: 'number', placeholder: '0', class: 'product-price'}
         %p.form-error
           300以上9999999以下で入力してください
       .fee
@@ -150,7 +108,6 @@
       .exhibilion
         .exhibilion__button
           = f.submit "出品する", class: 'exhibilionbutton'
-          -# %button{type: "submit", value: '出品する', class: 'exhibilionbutton'} 出品する
           %button{type: "submit", class: 'exhibilion__save'} 下書きに保存
         %a.top__return 
           もどる

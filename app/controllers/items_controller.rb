@@ -1,5 +1,4 @@
 class ItemsController < ApplicationController
-  # before_action :move_to_index, except: [:index, :show]
 
   def index
     @item = Item.includes(:item_images, :brands, :shippings).order('created_at DESC')
@@ -8,25 +7,11 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.item_images.new
-    # @item.brands.new
-    # @item.shippings.new
     @brand = Brand.new
     @shipping = Shipping.new
   end
 
   def create
-    # ActiveRecord::Base.transaction do
-    #   @item = Item.new(item_params)
-    #   @item.save!
-    #   @brand = Brand.new(brand_params)
-    #   @brand.save!
-    #   @shipping = Shipping.new(shipping_params)
-    #   @shipping.save!
-    # end
-    #   redirect_to root_path
-    # rescue
-    #   render :new
-
     @item = Item.new(item_params)
     if @item.save!
       item_id = @item.id
@@ -43,9 +28,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    # @item = Item.find(params[:id])
     @categories = Category.select("title")
-    # @comment = comment.new
   end
 
   private
@@ -56,7 +39,6 @@ class ItemsController < ApplicationController
     
     def item_params
       params.require(:item).permit(:item_name, :price, :size, :content, :status, item_images_attributes: [:image]).merge(user_id: 1)
-      # , brands_attributes: [:brand], shippings_attributes: [:ship_base, :region, :city, :block, :ship_method, :ship_date]
     end
 
     def brand_params  
