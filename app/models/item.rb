@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
-  belongs_to :user
-  belongs_to :category
+  belongs_to :user, optional: true
+  belongs_to :category, optional: true
   has_many :brands
   accepts_nested_attributes_for :brands, allow_destroy: true
   has_many :shippings
