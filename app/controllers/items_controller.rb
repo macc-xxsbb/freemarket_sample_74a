@@ -2,21 +2,25 @@ class ItemsController < ApplicationController
   # before_action :move_to_index, except: [:index, :show]
 
   def index
-    @item = Item.includes(:item_images).order('created_at DESC')
+    @item = Item.includes(:item_images, :brands, :shippings).order('created_at DESC')
   end
 
   def new
     @item = Item.new
     @item.item_images.new
-    @brand = Brand.new
-    @shipping = Shipping.new
+    @item.brands.new
+    @item.shippings.new
   end
 
   def create
-    Item.create(item_params)
-    Brand.create(brand_params)
-    Shipping.create(shipping_params)
-    redirect_to root_path
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to root_path
+    else
+      render :new
+    end
+    # Brand.create(brand_params)
+    # Shipping.create(shipping_params)
   end
 
   def show
@@ -31,15 +35,7 @@ class ItemsController < ApplicationController
   end
   
   def item_params
-    params.require(:item).permit(:item_name, :price, :size, :content, :status, item_images_attributes: [:image])
-  end
-
-  def brand_params  
-    params.require(:brand).permit(:brand)
-  end
-
-  def shipping_params  
-    params.require(:shipping).permit(:ship_base, :region, :city, :block, :ship_method, :ship_date).merge(item_id: params[:item_id])
+    params.require(:item).permit(:item_name, :price, :size, :content, :status, item_images_attributes: [:image], brands_attributes: [:brand], shippings_attributes: [:ship_base, :region, :city, :block, :ship_method, :ship_date])
   end
 
 end
