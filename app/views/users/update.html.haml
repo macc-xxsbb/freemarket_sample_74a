@@ -1,78 +1,19 @@
 .conteiner
   = render "side_bar"  
-  .content
-    %section.chapter-container
-      %h2.head クレジットカード情報入力
-      %form{data-adyen-id: "card-form", action: "#", method: "POST", id: "add-card-form", class: "#", novalidate: "novalidate"}
-        %input{type: "hidden", name: "__csrf_value", value: "#"}
-        .input-area
-          .input-area__card-num
-            %label{for: "payment_card_no"} カード番号
-            %span.form-require 必須
-            %input{type: "text", value id: "payment_card_no", placeholder: "半角数字のみ", deta-input-type: "card", class: "input-default has-error", maxlength: "19"}
-            %ul{id: "card-no-error-wrapper", class: "has-error-text"}
-              %li 必須項目です
-            %ul.signup-card-list
-              %li
-              %li
-              %li
-              %li
-              %li
-              %li
-              %li
-        .input-area__expiration-date
-          %label{for: "payment_card_expire"} 必須
-          %span.form-require 必須
-          %br
-          .input-area__expiration-dete__month
-            %select{id: "payment_card_expire_mm", class: "select-default"}
-              %option{value: "01"} 01
-              %option{value: "02"} 02
-              %option{value: "03"} 03
-              %option{value: "04"} 04
-              %option{value: "05"} 05
-              %option{value: "06"} 06
-              %option{value: "07"} 07
-              %option{value: "08"} 08
-              %option{value: "09"} 09
-              %option{value: "10"} 10
-              %option{value: "11"} 11
-              %option{value: "12"} 12
-            %i.icon-arrow-bottom
-            %span 月
-          .input-area__expiration-dete__year
-            %select{id: "payment_card_expire_yy", class: "select-defalt"}
-              %option{value: "20"} 20
-              %option{value: "21"} 21
-              %option{value: "22"} 22
-              %option{value: "23"} 23
-              %option{value: "24"} 24
-              %option{value: "25"} 25
-              %option{value: "26"} 26
-              %option{value: "27"} 27
-              %option{value: "28"} 28
-              %option{value: "29"} 29
-              %option{value: "30"} 30
-            %i.icon-arrow-bottom
-            %span 年
-          %ul{id: "expire-mm-error-wrapper", class: "has-error-text"}
-          %ul{id: "expire-yy-error-wrapper", class: "has-error-text"}
-        .input-area__security-form
-          %label{for: "payment_card_security_code"} セキュリティコード
-          %span.form-require 必須
-          %input{type: "number", valu id: "payment_card_security_cord", placeholder: "カード背面4桁もしくは3桁の番号", class: "input-default has-error"}
-          %ul{id: "security-code-error-wrapper", class:"has-error-text"}
-            %li 必須項目です
-          .input-area__security-form__question
-            .input-area__security-form__question__text
-              %span.form-question ?
-              カード裏面の番号とは?
-            .input-area__security-form__question__info
-            カードの裏面をご参照ください。
-            %br
-          %input{type: "hidden", id: "user_id", name: "user_id", value: "#"}
-          %input{type: "hidden", id: "encrypted_card_data", name: "encrypted_card_data"}
-          %p{id: "primary-error", class: "has-error-text"}
-          %input{type:"hidden", valu name: "after_save_callback"}
-          %button{type: "button", id: "submit-botton", class: "btn-default btn-red"} 追加する
-  
+  .conteiner__content
+        %h2.conteiner__content__head
+          支払い方法
+        .conteiner__content__chapter
+          .conteiner__content__chapter__inner
+            %section
+              .conteiner__content__chapter__inner__single
+                %h3.conteiner__content__chapter__inner__single__head
+                  クレジットカード一覧
+              %ul.conteiner__content__chapter__inner__single__payment-list
+            %section.conteiner__content__chapter__inner__credit
+              %button.conteiner__content__chapter__inner__credit__button
+                = link_to do
+                  クレジットカードを追加する
+            .conteiner__content__chapter__inner__settings
+              %span
+                支払い方法について  ＞
