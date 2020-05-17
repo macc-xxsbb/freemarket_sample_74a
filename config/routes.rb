@@ -8,4 +8,6 @@ Rails.application.routes.draw do
     resources :comments, only: :create
   end
   resources :item_payment
+  resources :credit_cards, only: [:new, :create] do
+  end
 end
