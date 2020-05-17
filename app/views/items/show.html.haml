@@ -9,14 +9,20 @@
           .image__box__body
             %ul
               %li.image__box__list
-                = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
-                %ul.grand
-                  %li.child
-                    = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", width: "75", height: "75"
-                  %li.child
-                    = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/14/a001.png", width: "75", height: "75"
-                  %li.child
-                    = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/15/a003.png", width: "75", height: "75"
+                -# = image_tag (@item.item_images[0], width: '135', alt: '商品画像')
+                -#   - @item.item_images.each.do |image|
+                  -#   %ul.grand
+                  -#     %li.child
+            -# %ul
+              -# %li.image__box__list
+              -#   = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
+              -#   %ul.grand
+              -#     %li.child
+              -#       = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", width: "75", height: "75"
+              -#     %li.child
+              -#       = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/14/a001.png", width: "75", height: "75"
+              -#     %li.child
+              -#       = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/15/a003.png", width: "75", height: "75"
           .item__box__price
             %span 
             = "￥#{@item.price}"
