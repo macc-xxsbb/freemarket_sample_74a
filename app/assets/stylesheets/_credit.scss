@@ -1,35 +1,12 @@
-.conteiner{
-  margin: 40px auto 0;
-  width: 1020px;
+.conteiner {
+  padding-top: 40px;
+  width: 100vw;
   display: flex;
+  justify-content: center;
   line-height: 1;
 
-  &__side{
-    width: 280px;
-    margin: 0 40px 0 0;
-    background-color:#eee;
-
-    &__nav{
-
-      &__list{
-        -webkit-box-sizing: inherit;
-        box-sizing: inherit; 
-        display: block;  
-        margin-inline-start: 0px;
-        margin-inline-end: 0px;
-        font-size-adjust: 14px;
-        background-color: white;
-
-        &__item{
-          padding: 16px;
-          border-top: 1px solid #eee;
-        }
-      }
-    }
-  }
-
   .content {
-    float: none;
+    float: right;
     width: 700px;
 
     section.chapter-container {
@@ -45,10 +22,10 @@
       }
 
       form {
-        padding: 24px 16px 40px;
+        padding: 40px 40px 64px;
         border-top: 1px solid #f5f5f5;
 
-        input {
+        input.overall {
           border: 0;
           outline: 0;
           font-family: inherit;
@@ -74,6 +51,7 @@
             }
 
             span.form-require {
+              background: #ea352d;
               margin: 0 0 0 8px;
               padding: 2px 4px;
               border-radius: 2px;
@@ -82,7 +60,7 @@
               vertical-align: top;
             }
 
-            input {
+            input.card-num {
               border-color: #ea352d;
               width: 100%;
               margin: 8px 0 0;
@@ -122,8 +100,11 @@
           }
         }
 
-        &__expiration-date {
-          margin: 24px 0 0;
+        .expiration-date {
+          width: 343px;
+          margin-top: 32px;
+          margin: 0 auto;
+
 
           label {
             font-weight: 600;
@@ -135,6 +116,7 @@
             background: #ea352d;
             margin: 0 0 0 8px;
             padding: 2px 4px;
+            border-radius: 2px;
             color: #fff;
             font-size: 12px;
             vertical-align: top;
@@ -143,11 +125,11 @@
           &__month {
             display: inline-block;
             width: calc(50% - 2px);
-            margin: 8px 0 0 ;
+            margin: 8px 0 0;
             position: relative;
             background: #fff;
 
-            %select {
+            select {
               width: calc(100% - 38px);
               position: relative;
               z-index: 2;
@@ -171,7 +153,7 @@
 
             i.icon-arrow-botton {
               font-size: 10px;
-              margin: 0 6px 0 -15px;
+              margin: 0 6px 0 -2px;
               position: relative;
               top: 3px;
               pointer-events: none;
@@ -191,7 +173,7 @@
 
           &__year {
             display: inline-block;
-            width: calc(50% - 2px);
+            width: calc(50% - 10px);
             margin: 8px 0 0;
             position: relative;
             background: #fff;
@@ -263,8 +245,10 @@
           }
         }
 
-        &__security-form {
-          margin: 24px 0 0;
+        .security-form {
+          width: 343px;
+          margin-top: 32px;
+          margin: 0 auto;
 
           label {
             font-weight: 600;
@@ -282,8 +266,7 @@
             vertical-align: top;
           }
 
-          input {
-            border-color: #ea352d;
+          input.security-code {
             width: 100%;
             margin: 8px 0 0;
             height: 48px;
@@ -325,6 +308,8 @@
             &__text {
               text-align: right;
               color: #0099e8;
+              font-size: 12px;
+              margin-bottom: 10px;
 
               span.form-question {
                 display: inline-block;
@@ -400,6 +385,7 @@
           }
 
           button {
+            width: 343px;
             margin: 24px 0 0;
             background: #ea352d;
             border: 1px solid #ea352d;
