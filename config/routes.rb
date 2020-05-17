@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   }
   root 'items#index'
   resources :users, only: [:index, :show, :edit, :update, :new]
-  resources :items, only: [:index, :show, :new] do
-    resources :comment, only: :create
+  resources :items, only: [:index, :show, :new, :edit, :destroy] do
+    resources :comments, only: :create
   end
   resources :item_payment
 end
