@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_15_053404) do
+ActiveRecord::Schema.define(version: 2020_05_17_082024) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "prefecture_id"
@@ -23,10 +23,11 @@ ActiveRecord::Schema.define(version: 2020_05_15_053404) do
     t.string "brand", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "item_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "title", null: false
+    t.string "title"
     t.string "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -68,20 +69,22 @@ ActiveRecord::Schema.define(version: 2020_05_15_053404) do
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "item_name", null: false
     t.integer "price", null: false
-    t.string "size", null: false
+    t.string "size"
     t.text "content", null: false
     t.integer "status", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "category_id"
+    t.integer "shipping_id"
   end
 
   create_table "shippings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "item_name", null: false
     t.integer "ship_base", null: false
     t.string "region", null: false
-    t.string "city", null: false
-    t.string "block", null: false
-    t.string "ship_method", null: false
+    t.string "city"
+    t.string "block"
+    t.string "ship_method"
     t.string "ship_date", null: false
     t.integer "item_id", null: false
     t.datetime "created_at", null: false

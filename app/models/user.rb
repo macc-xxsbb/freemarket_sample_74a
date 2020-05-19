@@ -8,7 +8,8 @@ class User < ApplicationRecord
   has_one :address
   has_one :credit_card, dependent: :destroy
 
-         has_many :credits
-         has_many :items
-         has_many :comments
+  has_many :credits
+  has_many :items
+  has_many :comments
+
 end
