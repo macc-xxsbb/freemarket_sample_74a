@@ -32,7 +32,8 @@ class ItemsController < ApplicationController
     @categories = Category.find(params[:id])
     @brand = Brand.find(params[:id])
     @shipping = Shipping.find(params[:id])
-    
+    @images = ItemImage.all
+    # @image = ItemImage.find(params[:id])
   end
 
   def destroy
