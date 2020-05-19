@@ -29,7 +29,10 @@ class CreditCardsController < ApplicationController
       else
         redirect_to action: "create"
       end
-    end
-  end
 
+    end
+
+  end
+  def edit
+  end
 end
