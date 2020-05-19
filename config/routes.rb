@@ -11,6 +11,6 @@ Rails.application.routes.draw do
     resources :shipping, only: :new
   end
   resources :item_payment
-  resources :credit_cards, only: [:new, :create] do
+  resources :credit_cards, only: [:new, :create, :edit] do
   end
 end
