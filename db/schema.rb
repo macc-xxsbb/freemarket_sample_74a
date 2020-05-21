@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2020_05_21_032622) do
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "title"
+    t.string "title", null: false
     t.string "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 2020_05_21_032622) do
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "item_name", null: false
     t.integer "price", null: false
-    t.string "size"
+    t.string "size", null: false
     t.text "content", null: false
     t.integer "status", null: false
     t.datetime "created_at", null: false
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 2020_05_21_032622) do
   end
 
   create_table "shippings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "item_name", null: false
     t.integer "ship_base", null: false
     t.string "region", null: false
     t.string "city", null: false
@@ -81,7 +82,6 @@ ActiveRecord::Schema.define(version: 2020_05_21_032622) do
     t.integer "item_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "item_name"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

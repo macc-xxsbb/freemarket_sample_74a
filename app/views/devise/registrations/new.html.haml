@@ -49,8 +49,8 @@
           生年月日
           %span{class: "require"} 必須
           .flexbox
-
-            = f.date_select :birthdate, use_month_numbers: true, start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(2001, 1, 1)
+            = f.text_field :birthdate, {class: "new_session-wrapper__main__text", placeholder: "例)2001年1月1日生まれなら20010101"}
+            -# = f.date_select :birthdate, use_month_numbers: true, start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(2001, 1, 1)
         .field
           電話番号
           %span{class: "require"} 必須
