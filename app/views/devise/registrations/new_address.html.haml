@@ -2,8 +2,6 @@
   .new_session-wrapper__logo
     = link_to root_path, class:"furima_logo" do
       = image_tag "logo.png", size: "130x50"
-      %span{class: "new_session-wrapper__logo__text"}
-        FURIMA
     %span{class: "new_session-wrapper__logo__title before-active after-active"}
       会員情報
     %span{class: "new_session-wrapper__logo__title title-active after-active"}
@@ -15,30 +13,29 @@
       住所情報
   .new_session-wrapper__main
     .new_session-wrapper__main__title
-      郵便番号
-      %span{class: "require"} 必須
-    %input{class: "new_session-wrapper__main__text", placeholder: "例)123-4567"}
-    .new_session-wrapper__main__title
-      都道府県
-      %span{class: "require"} 必須
-      .flexbox
-        %select{class: "new_session-wrapper__main__select"}
-          %option{value: "0"} --
-          %option{value: "1"} 選択肢1
-          %option{value: "2"} 選択肢2
-          %option{value: "3"} 選択肢3
-    .new_session-wrapper__main__title
-      市区町村
-      %span{class: "require"} 必須
-    %input{class: "new_session-wrapper__main__text", placeholder: "例)渋谷区"}
-    .new_session-wrapper__main__title
-      番地
-      %span{class: "require"} 必須
-    %input{class: "new_session-wrapper__main__text", placeholder: "例)道玄坂3-2"}
-    .new_session-wrapper__main__title
-      建物名
-      %span{class: "any"} 任意
-    %input{class: "new_session-wrapper__main__text", placeholder: "例)フォンティスビル7F"}
-    .new_session-wrapper__main__caution
-      ※本人情報は正しく入力してください。会員登録後、お時間を頂く場合があります。
-    %input{type: "submit",class: "new_session-wrapper__main__btn", value: "次へ進む"}
+      = form_for @address do |f|
+        = render "devise/shared/error_messages", resource: @address
+        .field
+          郵便番号
+          %span{class: "require"} 必須
+          = f.text_field :zipcode, {class: "new_session-wrapper__main__text", placeholder: "例)123-4567"}
+        .field
+          都道府県
+          %span{class: "require"} 必須
+          .field-select
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください"
+        .field
+          市区町村
+          %span{class: "require"} 必須
+          = f.text_field :city, {class: "new_session-wrapper__main__text", placeholder: "例)福岡市博多区"}
+        .field
+          番地
+          %span{class: "require"} 必須
+          = f.text_field :address, {class: "new_session-wrapper__main__text", placeholder: "例)中洲4-6-12"}
+        .field
+          建物名
+          %span{class: "any"} 任意
+          = f.text_field :building, {class: "new_session-wrapper__main__text", placeholder: "例)プラート中洲8F"}
+        .field
+          ※本人情報は正しく入力してください。会員登録後、お時間を頂く場合があります。
+          = f.submit class: "new_session-wrapper__main__btn", value: "次へ進む"
