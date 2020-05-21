@@ -1,0 +1,18 @@
+.conteiner
+  = render "side_bar"  
+  .conteiner__contents
+    %h2.conteiner__contents__head
+      支払い方法
+    .conteiner__contents__chapter
+      .conteiner__contents__chapter__inner
+        %section
+          .conteiner__contents__chapter__inner__single
+            %h3.conteiner__contents__chapter__inner__single__head
+              クレジットカード一覧
+          %ul.conteiner__contents__chapter__inner__single__payment-list
+        %section.conteiner__contents__chapter__inner__credit
+          %button.conteiner__contents__chapter__inner__credit__button
+            = link_to "クレジットカードを追加する", new_credit_card_path, method: :get ,class: ".conteiner__contents__chapter__inner__credit__button"              
+        .conteiner__contents__chapter__inner__settings
+          %span
+            支払い方法について  ＞
