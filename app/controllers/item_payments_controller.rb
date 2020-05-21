@@ -67,7 +67,6 @@ class ItemPaymentsController < ApplicationController
           currency: 'jpy'
           )
         end
-      #購入テーブルに登録処理(今回の実装では言及しませんが一応、、、)
       # @purchase = Purchase.create(buyer_id: current_user.id, product_id: params[:product_id])
       end
     end
