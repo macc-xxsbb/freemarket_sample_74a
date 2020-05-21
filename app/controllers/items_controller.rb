@@ -2,7 +2,11 @@ class ItemsController < ApplicationController
 
   def index
     @item = Item.includes(:item_images, :brands, :shippings).order('created_at DESC')
-    
+    @newItems = Item.includes(:item_images).where(buyer_id: nil).limit(3)
+
+    # @newItems = Item.includes(:item_images).first(3)
+    # @brandProducts = Product.includes(:images).where(status: 0).order("id DESC")
+    # @parent = Category.where(ancestry: nil)
   end
 
   def new
@@ -58,7 +62,7 @@ class ItemsController < ApplicationController
   end
     
   def item_params
-    params.require(:item).permit(:item_name, :price, :category_id, :size, :content, :status, item_images_attributes: [:image]).merge(user_id: 1)
+    params.require(:item).permit(:item_name, :price, :category_id, :buyer_id, :size, :content, :status, item_images_attributes: [:image]).merge(user_id: 1, saler_id: current_user.id)
   end
 
   def brand_params  
