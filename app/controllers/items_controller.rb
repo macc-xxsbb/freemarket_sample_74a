@@ -45,8 +45,24 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    @categories = Category.find(params[:id])
+    @brand = Brand.find(params[:id])
+    @shipping = Shipping.find(params[:id])
+    @images = ItemImage.all
   end
 
+  def update
+    @item = Item.find(params[:id])
+    categories = Category.find(params[:id])
+    brand = Brand.find(params[:id])
+    shipping = Shipping.find(params[:id])
+    images = ItemImage.all
+    if @item.update(post_params, item_params, brand_params, shipping_params)
+      redirect_to "items/item.id" , notice: ''
+    else
+      redirect_to edit_item_path
+    end
+  end
   
   private
   def move_to_index

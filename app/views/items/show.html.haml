@@ -21,11 +21,13 @@
             .item__box__price__data
               %span (税込み)
               %span  送料込み
-          - unless user_signed_in? && current_user.id == @item.user_id 
+          
+          - unless current_user.id == @item.user_id 
             .item__box__payment
               = link_to "/item_payment/item.id", class: "item_payment" do
                 購入画面に進む
           .item__datail
+            = @item.content
           .table
             %table.table__main
               %tbody.table__main__body
@@ -104,4 +106,5 @@
             = icon('fa fa-angle-right' ,class: 'angle-right')
       .items
         = link_to 'ベビー・キッズをもっと見る', '/posts/new',  class: 'items__show'
-
+        = link_to "商品を編集する", "/items/#{@item.id}/edit", class: "item-edit"
+        = link_to "商品を削除する", "/items/#{@item.id}", method: "delete", class: "item-delete"
