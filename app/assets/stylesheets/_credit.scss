@@ -9,7 +9,6 @@
     float: right;
     width: 700px;
 
-
     section.chapter-container {
       margin: 0;
       background: #fff;
@@ -23,6 +22,7 @@
       }
 
       .add-card {
+
         &__number-details {
           display: flex;
         
@@ -30,32 +30,32 @@
           } 
         }
 
-      form {
-        padding: 40px 40px 64px;
-        border-top: 1px solid #f5f5f5;
+        form {
+          padding: 40px 40px 64px;
+          border-top: 1px solid #f5f5f5;
 
-        input.overall {
-          border: 0;
-          outline: 0;
-          font-family: inherit;
-          -webkit-appearance: none;
-          touch-action: manipulation;
-          color: inherit;
-          font-style: inherit;
-          font-weight: inherit;
-          background-color: transparent;
-          }
+          input.overall {
+            border: 0;
+            outline: 0;
+            font-family: inherit;
+            -webkit-appearance: none;
+            touch-action: manipulation;
+            color: inherit;
+            font-style: inherit;
+            font-weight: inherit;
+            background-color: transparent;
+            }
 
-          &__must-check {
-            background: red;
-            margin: 0 0 0 8px;
-            padding: 2px 4px;
-            border-radius: 2px;
-            color: #fff;
-            font-size: 12px;
-            vertical-align: top;
+            &__must-check {
+              background: red;
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              border-radius: 2px;
+              color: #fff;
+              font-size: 12px;
+              vertical-align: top;
+            }
           }
-        }
 
         &__number {
 
@@ -76,11 +76,12 @@
           &__details {
             display: flex;
 
-            &__date{
+            &__date {
             }
 
             span.form-require {
               background: #ea352d;
+            }
 
             &__must-check{
               background: red;
@@ -90,7 +91,7 @@
               color: #fff;
               font-size: 12px;
               vertical-align: top;
-            }
+              }
           }
 
           &__choice {
@@ -110,10 +111,9 @@
                 width: calc(100% - 38px);
                 }
 
-                .month-details {
-                  margin: auto;
-                }  
-              }
+              .month-details {
+                margin: auto;
+              }  
             }
 
             &__year {
@@ -138,26 +138,28 @@
 
         &__securitycode {
           margin-top: 8px;
-          &__details{
+
+          &__details {
             display: flex;
 
             input.card-num {
               border-color: #ea352d;
 
-            &__fitle {
-            }
+              &__title {
+              }
 
-            span.must_check {
-              background: red;
-              margin: 0 0 0 8px;
-              padding: 2px 4px;
-              border-radius: 2px;
-              color: #fff;
-              font-size: 12px;
-              vertical-align: top; 
+              span.must_check {
+                background: red;
+                margin: 0 0 0 8px;
+                padding: 2px 4px;
+                border-radius: 2px;
+                color: #fff;
+                font-size: 12px;
+                vertical-align: top; 
+              }
             }
           }
-
+          
           &__cardsecurity {
 
             &__form {
@@ -177,8 +179,10 @@
             color: #0099e8;
           }
         }
-        .add{
-          &__btn{
+
+        .add {
+
+          &__btn {
             margin-top: 32px;
             background: #ea352d;
             border: 1px solid #ea352d;
@@ -186,91 +190,89 @@
             width: 100%;
             line-height: 48px;
             font-size: 14px;
-
           }
         }
-      }
 
-      .image{
-        margin-top: 8px;
-      }
+        .image {
+          margin-top: 8px;
+        }
 
-      form {
-        margin: auto;
-        max-width: 342px;
-        padding: 40px 40px 64px;
-        border-top: 1px solid #f5f5f5;
+        form {
+          margin: auto;
+          max-width: 342px;
+          padding: 40px 40px 64px;
+          border-top: 1px solid #f5f5f5;
 
-        .expiration-date {
-          width: 343px;
-          margin-top: 32px;
-          margin: 0 auto;
+          .expiration-date {
+            width: 343px;
+            margin-top: 32px;
+            margin: 0 auto;
 
-          label {
-            font-weight: 600;
-            display: inline-block;
-            touch-action: manipulation;
-          }
-
-          span.form-require {
-            background: #ea352d;
-            margin: 0 0 0 8px;
-            padding: 2px 4px;
-            border-radius: 2px;
-            color: #fff;
-            font-size: 12px;
-            vertical-align: top;
-          }
-
-          &__month {
-            display: inline-block;
-            width: calc(50% - 2px);
-            margin: 8px 0 0;
-            position: relative;
-            background: #fff;
-
-            select {
-              width: calc(100% - 38px);
-              position: relative;
-              z-index: 2;
-              height: 48px;
-              padding: 0 16px;
-              border-radius: 4px;
-              border: 1px solid #ccc;
-              background: 0;
-              font-size: 16px;
-              line-height: 1.5;
-              cursor: pointer;
-              outline: 0;
-              -webkit-appearrance: none;
+            label {
+              font-weight: 600;
+              display: inline-block;
               touch-action: manipulation;
-              color: inherit;
-              font-family: inherit;
-              font-style: inherit;
-              font-weight: inherit;
+            }
+
+            span.form-require {
+              background: #ea352d;
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              border-radius: 2px;
+              color: #fff;
+              font-size: 12px;
+              vertical-align: top;
+            }
+
+            &__month {
+              display: inline-block;
+              width: calc(50% - 2px);
+              margin: 8px 0 0;
+              position: relative;
+              background: #fff;
+
+              select {
+                width: calc(100% - 38px);
+                position: relative;
+                z-index: 2;
+                height: 48px;
+                padding: 0 16px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                background: 0;
+                font-size: 16px;
+                line-height: 1.5;
+                cursor: pointer;
+                outline: 0;
+                -webkit-appearrance: none;
+                touch-action: manipulation;
+                color: inherit;
+                font-family: inherit;
+                font-style: inherit;
+                font-weight: inherit;
+                }
+              }
+
+              i.icon-arrow-botton {
+                font-size: 10px;
+                margin: 0 6px 0 -2px;
+                position: relative;
+                top: 3px;
+                pointer-events: none;
+                right: 16px;
+                z-index: 2;
+                color: #888;
+                transform: translate(0, -50%);
+                display: inline-block;
+                font-family: 'icon-font';
+                font-style: normal;
+                font-weight: 400;
+                font-variant: normal;
+                text-transform: none;
+                line-height: 1;
+                -webkit-font-smoothing: antialiased;
               }
             }
-
-            i.icon-arrow-botton {
-              font-size: 10px;
-              margin: 0 6px 0 -2px;
-              position: relative;
-              top: 3px;
-              pointer-events: none;
-              right: 16px;
-              z-index: 2;
-              color: #888;
-              transform: translate(0, -50%);
-              display: inline-block;
-              font-family: 'icon-font';
-              font-style: normal;
-              font-weight: 400;
-              font-variant: normal;
-              text-transform: none;
-              line-height: 1;
-              -webkit-font-smoothing: antialiased;
-            }
-          }
 
           &__year {
             display: inline-block;

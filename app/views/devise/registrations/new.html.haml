@@ -35,14 +35,12 @@
           お名前(全角)
           %span{class: "require"} 必須
           .flexbox
-
             = f.text_field :family_name, {class: "new_session-wrapper__main__text text-half", placeholder: "例)山田"}
             = f.text_field :first_name, {class: "new_session-wrapper__main__text text-half", placeholder: "例)太郎"}
         .field
           お名前カナ(全角)
           %span{class: "require"} 必須
           .flexbox
-
             = f.text_field :family_name_kana, {class: "new_session-wrapper__main__text text-half", placeholder: "例)ヤマダ"}
             = f.text_field :first_name_kana, {class: "new_session-wrapper__main__text text-half", placeholder: "例)タロウ"}
         .field
@@ -57,5 +55,4 @@
           = f.telephone_field :phone, {class: "new_session-wrapper__main__text", placeholder: "ハイフンなし10~11桁"}
         .field
           ※本人情報は正しく入力してください。会員登録後、お時間を頂く場合があります。
-
           = f.submit class: "new_session-wrapper__main__btn", value: "次へ進む"
