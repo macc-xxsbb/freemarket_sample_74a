@@ -10,13 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_20_081723) do
+
+ActiveRecord::Schema.define(version: 2020_05_21_032622) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "prefecture_id"
     t.string "city"
+    t.integer "zipcode"
+    t.text "address"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "building"
+    t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -27,7 +33,7 @@ ActiveRecord::Schema.define(version: 2020_05_20_081723) do
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "title"
+    t.string "title", null: false
     t.string "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -69,7 +75,7 @@ ActiveRecord::Schema.define(version: 2020_05_20_081723) do
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "item_name", null: false
     t.integer "price", null: false
-    t.string "size"
+    t.string "size", null: false
     t.text "content", null: false
     t.integer "status", null: false
     t.datetime "created_at", null: false
@@ -96,9 +102,7 @@ ActiveRecord::Schema.define(version: 2020_05_20_081723) do
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "name", default: "", null: false
     t.string "nickname", default: "", null: false
-    t.string "name_kana", default: "", null: false
     t.date "birthdate", null: false
     t.string "phone", null: false
     t.string "reset_password_token"
@@ -106,8 +110,11 @@ ActiveRecord::Schema.define(version: 2020_05_20_081723) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "family_name", null: false
+    t.string "first_name", null: false
+    t.string "family_name_kana", null: false
+    t.string "first_name_kana", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["name"], name: "index_users_on_name", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
