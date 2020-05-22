@@ -15,13 +15,9 @@ ActiveRecord::Schema.define(version: 2020_05_21_032622) do
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "prefecture_id"
     t.string "city"
-    t.integer "zipcode"
-    t.text "address"
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "building"
-    t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -32,7 +28,7 @@ ActiveRecord::Schema.define(version: 2020_05_21_032622) do
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "title", null: false
+    t.string "title"
     t.string "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -74,7 +70,7 @@ ActiveRecord::Schema.define(version: 2020_05_21_032622) do
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "item_name", null: false
     t.integer "price", null: false
-    t.string "size", null: false
+    t.string "size"
     t.text "content", null: false
     t.integer "status", null: false
     t.datetime "created_at", null: false
@@ -82,6 +78,8 @@ ActiveRecord::Schema.define(version: 2020_05_21_032622) do
     t.integer "user_id"
     t.integer "category_id"
     t.integer "shipping_id"
+    t.integer "saler_id"
+    t.integer "buyer_id"
   end
 
   create_table "shippings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

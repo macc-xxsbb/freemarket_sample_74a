@@ -6,6 +6,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string    :size
       t.text      :content, null: false
       t.integer   :status, null: false
+      
       t.timestamps
     end
   end
