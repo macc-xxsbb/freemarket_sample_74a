@@ -1,61 +1,61 @@
-#account-page.account-page
-  .account-page__inner.clearfix
-    .account-page__inner--left.account-page__header
-      %h2 Create Account
-      %h5 新規アカウントの作成
-      = render "devise/shared/links"
-    .account-page__inner--right.user-form
-      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-        = devise_error_messages!
+.new_session-wrapper
+  .new_session-wrapper__logo
+    = link_to root_path, class:"furima_logo" do
+      = image_tag "logo.png", size: "130x50"
+    %span{class: "new_session-wrapper__logo__title title-active after-active"}
+      会員情報
+    %span{class: "new_session-wrapper__logo__title"}
+      住所情報
+    %span{class: "new_session-wrapper__logo__title-done"}
+      登録完了
+  .new_session-wrapper__main
+    .new_session-wrapper__main__head
+      会員情報
+  .new_session-wrapper__main
+    .new_session-wrapper__main__title
+      = form_for(@user, url: user_registration_path) do |f|
+        = render "devise/shared/error_messages", resource: @user
         .field
-          .field-label
-            = f.label :nickname
-            %i ニックネーム
-          .field-input
-            = f.text_field :nickname, autofocus: true
+          ニックネーム
+          %span{class: "require"} 必須
+          = f.text_field :nickname, {class: "new_session-wrapper__main__text", placeholder: "例)フリマ太郎"}
         .field
-          .field-label
-            = f.label :email
-            %i メールアドレス
-          .field-input
-            = f.email_field :email
+          メールアドレス
+          %span{class: "require"} 必須
+          = f.email_field :email, {class: "new_session-wrapper__main__text", placeholder: "PC・携帯どちらでも可"}
         .field
-          .field-label
-            = f.label :password
-            %i パスワード(英数字7文字以上)
-          .field-input
-            = f.password_field :password, autocomplete: "off"
+          パスワード
+          %span{class: "require"} 必須
+          = f.password_field :password, {class: "new_session-wrapper__main__text", placeholder: "7文字以上、英字数字両方を含むこと"}
         .field
-          .field-label
-            = f.label :password_confirmation
-            %i パスワード２回(英数字7文字以上)
-          .field-input
-            = f.password_field :password_confirmation, autocomplete: "off"
+          パスワード(確認)
+          %span{class: "require"} 必須
+          = f.password_field :password, {class: "new_session-wrapper__main__text", placeholder: "7文字以上、英字数字両方を含むこと"}
         .field
-          .field-label
-            = f.label :name
-            %i お名前（全角）
-          .field-input
-            = f.text_field :name
-        .field
-          .field-label
-            = f.label :name_kana
-            %i お名前カナ（全角）
-          .field-input
-            = f.text_field :name_kana, autofocus: true
-        .field
-          .field-label
-            = f.label :birthdate
-            %i 生年月日（例 20200511）
-            %br/
-            = f.date_select :birthdate, use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1)
-        .field
-          .field-label
-            = f.label :phone
-            %i 電話番号（例 012345678）
-          .field-input
-            = f.telephone_field :phone, autocomplete: "off"
-        .actions
-          = f.submit "Create Account", class: 'btn'
+          お名前(全角)
+          %span{class: "require"} 必須
+          .flexbox
 
+            = f.text_field :family_name, {class: "new_session-wrapper__main__text text-half", placeholder: "例)山田"}
+            = f.text_field :first_name, {class: "new_session-wrapper__main__text text-half", placeholder: "例)太郎"}
+        .field
+          お名前カナ(全角)
+          %span{class: "require"} 必須
+          .flexbox
 
+            = f.text_field :family_name_kana, {class: "new_session-wrapper__main__text text-half", placeholder: "例)ヤマダ"}
+            = f.text_field :first_name_kana, {class: "new_session-wrapper__main__text text-half", placeholder: "例)タロウ"}
+        .field
+          生年月日
+          %span{class: "require"} 必須
+          .flexbox
+            = f.text_field :birthdate, {class: "new_session-wrapper__main__text", placeholder: "例)2001年1月1日生まれなら20010101"}
+            -# = f.date_select :birthdate, use_month_numbers: true, start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(2001, 1, 1)
+        .field
+          電話番号
+          %span{class: "require"} 必須
+          = f.telephone_field :phone, {class: "new_session-wrapper__main__text", placeholder: "ハイフンなし10~11桁"}
+        .field
+          ※本人情報は正しく入力してください。会員登録後、お時間を頂く場合があります。
+
+          = f.submit class: "new_session-wrapper__main__btn", value: "次へ進む"
