@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   belongs_to                    :user,       optional: true
   belongs_to                    :category
+  belongs_to                    :item_payment
 
   belongs_to                    :saler,       optional: true
   belongs_to                    :buyer,       optional: true

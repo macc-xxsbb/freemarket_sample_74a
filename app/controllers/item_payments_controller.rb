@@ -3,11 +3,8 @@ class ItemPaymentsController < ApplicationController
   require "payjp"
 
   def buy
-    # @item = Item.find(params[:item_id])
-    @item = Item.find(1)
-
+    @item = Item.find_by(id: params[:format])
     @images = @item.item_images.all
-
     if user_signed_in?
       @user = current_user
       if @user.credit_card.present?
@@ -42,15 +39,13 @@ class ItemPaymentsController < ApplicationController
   end
 
   def pay
-    # @item = Item.find(params[:item_id])
-    @item = Item.find(1)
+    @item = Item.find(params[:item_id])
     @images = @item.item_images.all
 
-    # binding.pry
-    # if @item.item_payment.present?
-    #   redirect_to item_path(@item.id), alert: "売り切れています。"
-    # else
-      @item.with_lock do
+    if @item.buyer_id.present?
+      redirect_to item_path(@item.id), alert: "売り切れています。"
+    else
+        @item.with_lock do
         if current_user.credit_card.present?
           @card = CreditCard.find_by(user_id: current_user.id)
           Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
@@ -59,6 +54,8 @@ class ItemPaymentsController < ApplicationController
           customer: Payjp::Customer.retrieve(@card.customer_id),
           currency: 'jpy'
           )
+          # binding.pry
+          @item.buyer_id = current_user.id
           redirect_to root_path
         else
           Payjp::Charge.create(
@@ -66,9 +63,22 @@ class ItemPaymentsController < ApplicationController
           card: params['payjp-token'],
           currency: 'jpy'
           )
+          binding.pry
+          @item.buyer_id = current_user.id
         end
-      # @purchase = Purchase.create(buyer_id: current_user.id, product_id: params[:product_id])
+        @item_payment = ItemPayment.create(buyer_id: current_user.id, item_id: params[:item_id])
+        @item = Item.create(buyer_id: current_user.id)
+        
+        # @item.update(item_params)
       end
     end
   end
-# end
+  
+
+    private
+  
+    def item_params
+      params.permit(buyer_id: current_user.id)
+    end
+  
+end

@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
 
+  before_action :move_to_index, except: [:index, :show, :search]
+  
   def index
     @item = Item.includes(:item_images, :brands, :shippings).order('created_at DESC')
     @newItems = Item.includes(:item_images).where(buyer_id: nil).limit(3)
@@ -30,11 +32,13 @@ class ItemsController < ApplicationController
   end 
 
   def show
+    # binding.pry
     @item = Item.find(params[:id])
     @categories = Category.find(params[:id])
     @brand = Brand.find(params[:id])
     @shipping = Shipping.find(params[:id])
     @images = ItemImage.all
+    # binding.pry
   end
 
   def destroy
