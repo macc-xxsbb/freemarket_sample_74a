@@ -63,13 +63,13 @@ class ItemPaymentsController < ApplicationController
           card: params['payjp-token'],
           currency: 'jpy'
           )
-          binding.pry
+          # binding.pry
           @item.buyer_id = current_user.id
         end
         @item_payment = ItemPayment.create(buyer_id: current_user.id, item_id: params[:item_id])
-        @item = Item.create(buyer_id: current_user.id)
+        # @item = Item.create(buyer_id: current_user.id)
         
-        # @item.update(item_params)
+        @item.update(item_params)
       end
     end
   end
@@ -78,7 +78,7 @@ class ItemPaymentsController < ApplicationController
     private
   
     def item_params
-      params.permit(buyer_id: current_user.id)
+      params.require(:item).merge(buyer_id: current_user.id)
     end
   
 end
