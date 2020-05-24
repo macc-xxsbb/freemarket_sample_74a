@@ -57,7 +57,7 @@ class ItemsController < ApplicationController
     brand = Brand.find(params[:id])
     shipping = Shipping.find(params[:id])
     images = ItemImage.all
-    if @item.update(post_params, item_params, brand_params, shipping_params)
+    if @item.update(item_params, brand_params, shipping_params)
       redirect_to items_path , notice: ''
     else
       redirect_to edit_item_path
@@ -69,9 +69,9 @@ end
     redirect_to action: :index unless user_signed_in?
   end
 
-  def post_params
-    params.require(:item).permit(:item_name, :size, :price, :content, :status).merge(user_id: current_user.id)
-  end
+  # def post_params
+  #   params.require(:item).permit(:item_name, :size, :price, :content, :status).merge(user_id: current_user.id)
+  # end
     
   def item_params
     params.require(:item).permit(:item_name, :price, :category_id, :size, :content, :status, item_images_attributes: [:image]).merge(user_id: 1)
