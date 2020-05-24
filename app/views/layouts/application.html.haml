@@ -8,6 +8,7 @@
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
     .header
       .header__innner
         .header__inner__main
@@ -76,5 +77,5 @@
         = image_tag "logo-white.png", size: "130x50"
       
       %div
-      = link_to "#", class:"camera_logo" do
+      = link_to new_item_path, class:"camera_logo" do
         = image_tag "icon_camera.png", size: "80x50"
