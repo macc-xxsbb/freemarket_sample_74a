@@ -9,12 +9,15 @@
         %p 最大１０枚までアップロードできます。
         .name__image
           .name__image__set
-            = f.fields_for @item do |item|
-              = item.fields_for :item_images do |item_image|
-                = item_image.label :image, class: "name__image__set__file" do
-                  = image_tag "icon_camera.png", class: 'camera', height: '20', width: '18'
-                  = item_image.file_field :image, class: "hidden"
-            %p 
+            .name__image__set__file.item-num-0
+              = f.fields_for @item do |item|
+                = item.fields_for :item_images do |item_image|
+                  #image-box__container
+                    = item_image.file_field :image, type: 'file', name: "item[item_images_attributes][0][image]", value:"", style: "display:none", id:"img-file0", class:"js-file"
+                    #image-box__container__var
+                      %label{for: "img-file0"}
+                        %i.fas.fa-camera
+            %p
               ドラッグアンドドロップ
               %br
               またはクリックしてファイルをアップロード
@@ -56,7 +59,7 @@
         %label.label-edit 商品の状態
         %sapn.required 必須
         = f.fields_for @item do |item|
-          = item.select :status, { "選択してください": 1, "新品・未使用": 2, "未使用に近い": 3, "目立った傷や汚れなし": 4, "やや傷や汚れあり": 5, "傷や汚れあり": 6, "全体的に状態が悪い": 7 }
+          = item.collection_select :status_id, Status.all, :id, :name, prompt: "選択してください", class: 'input'
         .choice
           選択してください
       .delivery
@@ -73,7 +76,7 @@
               = shipping.label :発送元の地域, {class: 'label-edit'}
               = shipping.label :必須, {class: 'required'}
               .delivery__list__prefecture
-                = shipping.select :region, { "選択してください": 1, "東京都": 2, "大阪": 3, "福岡": 4 }
+                = shipping.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください", class: 'input'
             .choice
               選択してください
             .delivery__list
