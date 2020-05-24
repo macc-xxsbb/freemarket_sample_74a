@@ -100,47 +100,23 @@
       .product__head
         %h3.title__one
           = link_to "新規投稿商品", "#"
-
-
       .product__lists
         .product__list
-          %figure.product__list__img
-            = link_to image_tag("pict-reason-03.jpg", size: "250x250")
-          .product__list__body
-            %h3.name
-              product
-            .details
-              %ul
-                %li
-                  30000円
-              %p
-                (税込)
-        .product__list
-          %figure.product__list__img
-            = link_to image_tag("pict-reason-03.jpg", size: "250x250")
-          .product__list__body
-            %h3.name
-              product
-            .details
-              %ul
-                %li
-                  30000円
-              %p
-                (税込)
-
-        .product__list
-          %figure.product__list__img
-            = link_to image_tag("pict-reason-03.jpg", size: "250x250")
-          .product__list__body
-            %h3.name
-              product
-            .details
-              %ul
-                %li
-                  30000円
-              %p
-                (税込)
-
+          - @newItems.each do |item|
+            = link_to item_path(item), class: "list__image" do
+              %figure.item__images
+                = image_tag item.item_images[0].image.url, alt: "image_url",size: "200x150"
+              .product__list__body
+                %h3.name
+                  = item.item_name
+                .details
+                  %ul
+                    %li
+                      = item.price
+                      円
+                  %p
+                    (税込)
+        
   .main__five__two
     %h2.head
       ピックアップブランド
@@ -149,46 +125,22 @@
       .product__head
         %h3.title__two
           = link_to "アーカイバ", "#"
-
-
       .product__lists
         .product__list
-          %figure.product__list__img
-            = link_to image_tag("pict-reason-03.jpg", size: "250x250")
-          .product__list__body
-            %h3.name
-              product
-            .details
-              %ul
-                %li
-                  30000円
-              %p
-                (税込)
-        .product__list
-          %figure.product__list__img
-            = link_to image_tag("pict-reason-03.jpg", size: "250x250")
-          .product__list__body
-            %h3.name
-              product
-            .details
-              %ul
-                %li
-                  30000円
-              %p
-                (税込)
-
-        .product__list
-          %figure.product__list__img
-            = link_to image_tag("pict-reason-03.jpg", size: "250x250")
-          .product__list__body
-            %h3.name
-              product
-            .details
-              %ul
-                %li
-                  30000円
-              %p
-                (税込)
+          - @newItems.each do |item|
+            = link_to item_path(item), class: "list__image" do
+              %figure.item__images
+                = image_tag item.item_images[0].image.url, alt: "image_url",size: "200x150"
+              .product__list__body
+                %h3.name
+                  = item.item_name
+                .details
+                  %ul
+                    %li
+                      = item.price
+                      円
+                  %p
+                    (税込)
 
 .banner
   .banner__inner
@@ -199,4 +151,3 @@
     .content__btn
     = link_to image_tag("http://furima.tokyo/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg", size: "150x80"), "#"
     = link_to image_tag("http://furima.tokyo/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg", size: "150x80"), "#"
-

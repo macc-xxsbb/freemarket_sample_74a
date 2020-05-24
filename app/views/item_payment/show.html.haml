@@ -1,8 +1,10 @@
-.container
 
-  %header.header
-    %h1.header__title
-      = link_to image_tag("logo.png", alt: 'FURIMA', class: "header__title__link"), "#"
+%link{href: "item_payment.scss", rel: "stylesheet"}
+
+.container
+  %header.header-area
+    %h1.header-area__title
+      = link_to image_tag("logo.png", alt: 'FURIMA', class: "header-area__title__link"), "#"
 
   %main.main
     %section.buy
@@ -57,15 +59,15 @@
               = f.submit '購入する', class: "btn-default btn-red bold"
               = f.hidden_field :price, id: "user_info_is_not_complete"
 
-  %footer.footer
-    %nav.footer__content
-      %ul.clearfix.footer__content__box
+  %footer.footer-area
+    %nav.footer-area__content
+      %ul.clearfix.footer-area__content__box
         %li
-          = link_to "プライバシーポリシー", "#", class: "footer__content__box__element"
+          = link_to "プライバシーポリシー", "#", class: "footer-area__content__box__element"
         %li
-          = link_to "フリマ利用規約", "#", class: "footer__content__box__element"
+          = link_to "フリマ利用規約", "#", class: "footer-area__content__box__element"
         %li
-          = link_to "特定商取引に関する表記", "#", class: "footer__content__box__element"
+          = link_to "特定商取引に関する表記", "#", class: "footer-area__content__box__element"
     = link_to image_tag('logo-white.png', alt: "furima", width: "230", height: "65" ), "#"
     %p
       %small
