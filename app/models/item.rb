@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :item_images,allow_destroy: true
   has_many                      :comments
 
-  validates :item_name, :price, :content, :status ,presence: true
+
 end
 
 
