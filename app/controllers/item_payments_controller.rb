@@ -54,7 +54,6 @@ class ItemPaymentsController < ApplicationController
           customer: Payjp::Customer.retrieve(@card.customer_id),
           currency: 'jpy'
           )
-          # binding.pry
           @item.buyer_id = current_user.id
           redirect_to root_path
         else
@@ -63,13 +62,11 @@ class ItemPaymentsController < ApplicationController
           card: params['payjp-token'],
           currency: 'jpy'
           )
-          # binding.pry
           @item.buyer_id = current_user.id
         end
         @item_payment = ItemPayment.create(buyer_id: current_user.id, item_id: params[:item_id])
-        # @item = Item.create(buyer_id: current_user.id)
-        
-        @item.update(item_params)
+        @item.update(buyer_id: current_user.id)
+        @item.save!
       end
     end
   end
