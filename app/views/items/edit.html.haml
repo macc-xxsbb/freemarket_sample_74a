@@ -2,7 +2,7 @@
   = link_to image_tag("logo.png", height: '49', width: '185', class: 'logo'), "/"
 .content
   .content-main
-    = form_with @item, local: true do |f|
+    = form_with url:item_path(@item), method: :patch, local: true do |f|
       .item-box
         %h2.item-box__title
           = @item.item_name

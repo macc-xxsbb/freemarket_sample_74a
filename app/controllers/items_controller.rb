@@ -57,7 +57,7 @@ class ItemsController < ApplicationController
     brand = Brand.find(params[:id])
     shipping = Shipping.find(params[:id])
     images = ItemImage.all
-    if @item.update(item_params, brand_params, shipping_params)
+    if @item.update(item_params)
       redirect_to items_path , notice: ''
     else
       redirect_to edit_item_path
