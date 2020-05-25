@@ -45,8 +45,11 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    @categories = Category.find(params[:id])
+    @brand = Brand.find(params[:id])
+    @shipping = Shipping.find(params[:id])
+    @images = ItemImage.all
   end
-
   
   private
 
