@@ -83,4 +83,3 @@ gem 'payjp'
 gem 'jquery-rails'
 gem 'carrierwave'
 gem 'mini_magick'
-
