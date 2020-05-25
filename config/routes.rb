@@ -16,8 +16,12 @@ Rails.application.routes.draw do
     resources :brands, only: :new
     resources :shipping, only: :new
   end
-  resources :item_payment
-
-  resources :credit_cards, only: [:new, :create, :edit] do
+  resources :credit_cards, only: [:new, :edit, :create, :show, :destroy] do
+  end
+  resource :item_payments do
+    member do
+      get  "buy"
+      post "pay"
+    end
   end
 end
