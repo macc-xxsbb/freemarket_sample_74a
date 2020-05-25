@@ -27,6 +27,7 @@ class ItemsController < ApplicationController
       item_id = @item.id
       @brand = Brand.new(brand_params.merge(item_id: item_id))
       @shipping = Shipping.new(shipping_params.merge(item_id: item_id)) 
+      binding.pry
       if @brand.save && @shipping.save
         redirect_to root_path
       else
