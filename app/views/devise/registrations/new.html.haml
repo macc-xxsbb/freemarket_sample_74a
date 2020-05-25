@@ -26,11 +26,11 @@
         .field
           パスワード
           %span{class: "require"} 必須
-          = f.password_field :password, {class: "new_session-wrapper__main__text", placeholder: "7文字以上、英字数字両方を含むこと"}
+          = f.password_field :password, {class: "new_session-wrapper__main__text", placeholder: "英字もしくは数字7文字以上"}
         .field
           パスワード(確認)
           %span{class: "require"} 必須
-          = f.password_field :password, {class: "new_session-wrapper__main__text", placeholder: "7文字以上、英字数字両方を含むこと"}
+          = f.password_field :password, {class: "new_session-wrapper__main__text", placeholder: "英字もしくは数字7文字以上"}
         .field
           お名前(全角)
           %span{class: "require"} 必須
@@ -48,7 +48,6 @@
           %span{class: "require"} 必須
           .flexbox
             = f.text_field :birthdate, {class: "new_session-wrapper__main__text", placeholder: "例)2001年1月1日生まれなら20010101"}
-            -# = f.date_select :birthdate, use_month_numbers: true, start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(2001, 1, 1)
         .field
           電話番号
           %span{class: "require"} 必須
