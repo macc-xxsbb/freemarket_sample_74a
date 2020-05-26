@@ -17,12 +17,10 @@ class ItemsController < ApplicationController
   end
 
   def create
-
     @item = Item.new(item_params)
     @brand = Brand.new(brand_params)
     @shipping = Shipping.new(shipping_params)
-    @address = Address.new(address_params)
-    # binding.pry
+    binding.pry
     if @item.save!
       item_id = @item.id
       @brand = Brand.new(brand_params.merge(item_id: item_id))
@@ -43,7 +41,7 @@ class ItemsController < ApplicationController
     @brand = Brand.find(params[:id])
     @shipping = Shipping.find(params[:id])
     @images = ItemImage.all
-    @address = Address.find(params[:id])
+    # @address = Address.find(params[:id])
     # @ship_base = Ship_base.(params[:id])
   end
 
@@ -70,19 +68,13 @@ class ItemsController < ApplicationController
     def item_params
       params.require(:item).permit(:item_name, :price, :size, :content, :category_id, :status_id, :buyer_id, item_images_attributes: [:image] ).merge(user_id: current_user.id, saler_id: current_user.id)
     end
-   
 
     def brand_params  
       params.require(:brand).permit(:brand)
     end
 
     def shipping_params  
-      params.require(:shipping).permit(:ship_base, :region, :city, :block, :ship_method, :ship_date, :prefecture_id)
-    end
-
-
-    def address_params  
-      params.require(:address).permit(:prefecture_id, :city, :zipcode, :building).merge(user_id: current_user.id)
+      params.require(:shipping).permit(:ship_base_id, :region, :city, :block, :ship_method, :ship_date, :prefecture_id)
     end
 
   end
