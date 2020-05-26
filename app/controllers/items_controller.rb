@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @brand = Brand.new(brand_params)
     @shipping = Shipping.new(shipping_params)
-    binding.pry
+
     if @item.save!
       item_id = @item.id
       @brand = Brand.new(brand_params.merge(item_id: item_id))
