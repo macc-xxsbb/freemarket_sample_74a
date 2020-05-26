@@ -80,9 +80,9 @@ ActiveRecord::Schema.define(version: 2020_05_26_074724) do
     t.integer "user_id"
     t.integer "category_id"
     t.integer "shipping_id"
-    t.integer "status_id"
     t.integer "saler_id"
     t.integer "buyer_id"
+    t.integer "status_id"
   end
 
   create_table "shippings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 2020_05_26_074724) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "prefecture_id"
+    t.string "ship_method"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
