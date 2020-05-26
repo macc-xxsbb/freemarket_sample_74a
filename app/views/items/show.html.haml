@@ -13,7 +13,7 @@
                   = image_tag "#{image.image}", alt: '商品画像', class: 'image-first', index: i
             .image__box__list
               - @item.item_images.each.with_index do |image, i|
-                - if i > 0 and i < 5 
+                - if i > 0 and i < 10
                   = image_tag "#{image.image}", width: '135', alt: '商品画像', index: i
           .item__box__price
             %span 
@@ -37,7 +37,7 @@
                   %th.table-th カテゴリー
                   %td.table-td
                     = link_to "/", class: "link-blue" do
-                      -# = @item.category.title
+                      = @item.category.title
                 %tr.table-tr
                   %th.table-th ブランド
                   %td.table-td
@@ -49,19 +49,19 @@
                 %tr.table-tr
                   %th.table-th 商品の状態
                   %td.table-td
-                    = @item.status
+                    = @item.status.name
                 %tr.table-tr
                   %th.table-th 配送料の負担
                   %td.table-td 
-                    = @shipping.ship_method
+                    = @shipping.ship_base.name
                 %tr.table-tr
                   %th.table-th 発送元の地域
                   %td.table-td
-                    = @shipping.ship_base
+                    = @address.prefecture.name
                 %tr.table-tr
                   %th.table-th 発送日の目安
                   %td.table-td 
-                    = @shipping.ship_base
+                    = @shipping.ship_date
           .optional__area
             %ul
               %li.optional__btn__star

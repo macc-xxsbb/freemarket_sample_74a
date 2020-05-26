@@ -21,7 +21,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @brand = Brand.new(brand_params)
     @shipping = Shipping.new(shipping_params)
-
+    @address = Address.new(address_params)
     # binding.pry
     if @item.save!
       item_id = @item.id
@@ -43,6 +43,8 @@ class ItemsController < ApplicationController
     @brand = Brand.find(params[:id])
     @shipping = Shipping.find(params[:id])
     @images = ItemImage.all
+    @address = Address.find(params[:id])
+    # @ship_base = Ship_base.(params[:id])
   end
 
   def destroy
@@ -76,6 +78,11 @@ class ItemsController < ApplicationController
 
     def shipping_params  
       params.require(:shipping).permit(:ship_base, :region, :city, :block, :ship_method, :ship_date, :prefecture_id)
+    end
+
+
+    def address_params  
+      params.require(:address).permit(:prefecture_id, :city, :zipcode, :building).merge(user_id: current_user.id)
     end
 
   end
