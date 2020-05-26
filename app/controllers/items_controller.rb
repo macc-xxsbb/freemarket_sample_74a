@@ -17,17 +17,14 @@ class ItemsController < ApplicationController
   end
 
   def create
-
     @item = Item.new(item_params)
     @brand = Brand.new(brand_params)
     @shipping = Shipping.new(shipping_params)
 
-    # binding.pry
     if @item.save!
       item_id = @item.id
       @brand = Brand.new(brand_params.merge(item_id: item_id))
       @shipping = Shipping.new(shipping_params.merge(item_id: item_id)) 
-      binding.pry
       if @brand.save && @shipping.save
         redirect_to root_path
       else
