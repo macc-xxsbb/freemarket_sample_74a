@@ -4,7 +4,10 @@
 .container
   %header.header-area
     %h1.header-area__title
-      = link_to image_tag("logo.png", alt: 'FURIMA', class: "header-area__title__link"), "#"
+      .image__box__top
+        -# - @item.item_images.each.with_index do |image, i|
+        -#   -if i == 0
+        -#     = image_tag "#{image.image}", alt: '商品画像', width: '240', class: 'image-first', index: i
 
   %main.main
     %section.buy
@@ -14,10 +17,13 @@
         .buy__item__content
           .buy__item__content__box
             %h3.buy__item__content__box__image
-              = image_tag "pict-reason-02.jpg", data: { src: "#" }, class: "is-higher-height"
+              - @item.item_images.each.with_index do |image, i|
+                -if i == 0
+                  = image_tag "#{image.image}", alt: '商品画像', width: '150', height: '100', class: 'image-first', index: i
             .buy__item__content__detail
               %p.buy__item__content__detail__name
-                新品 デジタル 腕時計 多機能 LED ボーイズ(キッズ)から大人までB5
+                = @item.item_name
+                -# 新品 デジタル 腕時計 多機能 LED ボーイズ(キッズ)から大人までB5
               %p.buy__item__content__detail__price
                 %span
                   = "#{@item.price}" + "円"
