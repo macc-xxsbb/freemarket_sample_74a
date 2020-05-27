@@ -35,13 +35,9 @@ class ItemsController < ApplicationController
   end 
 
   def show
-    
     @item = Item.find(params[:id])
-    @categories = Category.find(params[:id])
     @brand = Brand.find(params[:id])
     @shipping = Shipping.find(params[:id])
-    @images = ItemImage.all
-    # @ship_base = Ship_base.(params[:id])
   end
 
   def destroy
@@ -52,19 +48,13 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    @categories = Category.find(params[:id])
     @brand = Brand.find(params[:id])
     @shipping = Shipping.find(params[:id])
-    @images = ItemImage.all
   end
   
   def update
     @item = Item.find(params[:id])
-    categories = Category.find(params[:id])
-    brand = Brand.find(params[:id])
-    shipping = Shipping.find(params[:id])
-    images = ItemImage.all
-    if @item.update(item_params)
+    if @item.update!(item_params)
       redirect_to items_path , notice: ''
     else
       redirect_to edit_item_path
@@ -78,7 +68,7 @@ class ItemsController < ApplicationController
     end
 
     def item_params
-      params.require(:item).permit(:item_name, :price, :size, :content, :category_id, :status_id, :buyer_id, item_images_attributes: [:image] ).merge(user_id: current_user.id, saler_id: current_user.id)
+      params.require(:item).permit(:item_name, :price, :size, :content, :category_id, :status_id, :buyer_id, item_images_attributes: [:image, :id] ).merge(user_id: current_user.id, saler_id: current_user.id)
     end
 
     def brand_params  

@@ -12,9 +12,9 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :edit, :update, :new]
   resources :items, only: [:index, :show, :new, :create, :edit, :destroy, :update] do
     resources :comments, only: [:create, :edit, :update]
-    resources :item_images, only: :new
-    resources :brands, only: :new
-    resources :shipping, only: :new
+    resources :item_images, only: [:new, :edit, :update]
+    resources :brands, only: [:new, :edit, :update]
+    resources :shipping, only: [:new, :edit, :update]
   end
   resources :credit_cards, only: [:new, :edit, :create, :show, :destroy] do
   end
