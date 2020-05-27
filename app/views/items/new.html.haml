@@ -44,7 +44,7 @@
                 .product_require
                   必須
               .product_category-select
-                = f.collection_select :category, Category.all, :id, :title, { prompt: "選択してください" }, { class: "category_select-box", id: "category_select" }
+                = f.collection_select :category, Category.where(ancestry: nil), :id, :title, { prompt: "選択してください" }, { class: "category_select-box", id: "category_select" }
                 -# = f.collection_select :category, @category, :id, :title, { prompt: "選択してください" }, { class: "category_select-box", id: "category_select" }
                 %i.fa.fa-chevron-down
               .product_select-children
