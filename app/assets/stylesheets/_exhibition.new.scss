@@ -48,8 +48,10 @@
         margin-top: 16px;
       }
       .name__image {
+        display: flex;
+        flex-wrap: wrap;
         width: 620px;
-        height: 150px;
+        height: 250px;
         background-color: #F5F5F5;
         margin:10px 0;
         text-align: center;
