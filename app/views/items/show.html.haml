@@ -23,7 +23,7 @@
               %span  送料込み
           - unless user_signed_in? && current_user.id == @item.user_id 
             .item__box__payment
-              = link_to buy_item_payments_path(@item.id) , class: "item_payment", method: :get do
+              = link_to "/item_payment/item.id", class: "item_payment" do
                 購入画面に進む
           .item__datail
           .table
@@ -53,7 +53,7 @@
                 %tr.table-tr
                   %th.table-th 配送料の負担
                   %td.table-td 
-                    -# = @shipping.ship_method
+                    = @shipping.ship_method
                 %tr.table-tr
                   %th.table-th 発送元の地域
                   %td.table-td
@@ -61,7 +61,7 @@
                 %tr.table-tr
                   %th.table-th 発送日の目安
                   %td.table-td 
-                    = @shipping.ship_base
+                    = @shipping.ship_date.name
           .optional__area
             %ul
               %li.optional__btn__star
