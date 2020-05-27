@@ -83,8 +83,8 @@
               %label.label-edit  発送までの日数
               %sapn.required 必須
               = shipping.select :ship_date, { "選択してください": 1, "1日〜2日で発送": 2, "2日〜3日で発送": 3, "4日〜7日で発送": 4 }
-              .choice
-                選択してください
+            .choice
+              選択してください
       .item-price
         %p
           価格（¥300〜9,999,999)
@@ -140,4 +140,3 @@
     %p.logo__tag
       © FURIMA, Inc.
 
-      -# :ship_date, { "選択してください": 1, "1日〜2日で発送": 2, "2日〜3日で発送": 3, "4日〜7日で発送": 4 }

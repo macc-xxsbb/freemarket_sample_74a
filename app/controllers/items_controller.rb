@@ -20,7 +20,6 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @brand = Brand.new(brand_params)
     @shipping = Shipping.new(shipping_params)
-
     if @item.save!
       item_id = @item.id
       @brand = Brand.new(brand_params.merge(item_id: item_id))
@@ -36,12 +35,12 @@ class ItemsController < ApplicationController
   end 
 
   def show
+    
     @item = Item.find(params[:id])
     @categories = Category.find(params[:id])
     @brand = Brand.find(params[:id])
     @shipping = Shipping.find(params[:id])
     @images = ItemImage.all
-    # @address = Address.find(params[:id])
     # @ship_base = Ship_base.(params[:id])
   end
 
@@ -74,7 +73,7 @@ class ItemsController < ApplicationController
     end
 
     def shipping_params  
-      params.require(:shipping).permit(:ship_base_id, :region, :city, :block, :ship_method, :ship_date, :prefecture_id)
+      params.require(:shipping).permit(:ship_base_id, :ship_method, :ship_date, :prefecture_id)
     end
 
   end

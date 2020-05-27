@@ -53,22 +53,22 @@
                 %tr.table-tr
                   %th.table-th 配送料の負担
                   %td.table-td 
-                    = @shipping.ship_base
+                    = @shipping.ship_base.name
                 %tr.table-tr
                   %th.table-th 発送元の地域
                   %td.table-td
-                    -# = @address.prefecture.name
+                    = @shipping.prefecture.name
                 %tr.table-tr
                   %th.table-th 発送日の目安
                   %td.table-td 
-                    = @shipping.ship_date
+                    -# = @shipping.ship_date.name
           .optional__area
             %ul
               %li.optional__btn__star
                 = icon('fa fa-star', class: 'star-icon')
                 お気に入り 0
             %ul.optional
-              %li.optional__btn__flag 
+              %li.optional__btn__flag
                 = link_to '/' do
                   = icon('fa fa-flag', class: 'flag')
                   不適切な商品の通報
@@ -80,7 +80,6 @@
               .fix-area__zone__delete
                 = link_to "商品を削除する", "/items/#{@item.id}", method: "delete", class: "item-delete"
           .comment__contents
-            -# = @comments.each do |comment|
         .comment__box
           %ul.commentContents
           .form
