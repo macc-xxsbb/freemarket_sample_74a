@@ -90,9 +90,10 @@
             .choice
               選択してください
             .delivery__list
-              %label.label-edit  発送までの日数
-              %sapn.required 必須
-              = shipping.select :ship_date_id, { "選択してください": 1, "1日〜2日で発送": 2, "2日〜3日で発送": 3, "4日〜7日で発送": 4 }
+              = shipping.label :発送日の目安, {class: 'label-edit'}
+              = shipping.label :必須, {class: 'required'}
+              .delivery__list__ship_date
+                = shipping.collection_select :ship_date_id, ShipDate.all, :id, :name, prompt: "選択してください", class: 'input'
               .choice
                 選択してください
       .item-price
