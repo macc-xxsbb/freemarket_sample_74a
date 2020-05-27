@@ -23,7 +23,7 @@
               %span  送料込み
           - unless user_signed_in? && current_user.id == @item.user_id 
             .item__box__payment
-              = link_to "/item_payment/item.id", class: "item_payment" do
+              = link_to buy_item_payments_path(@item.id) , class: "item_payment", method: :get do
                 購入画面に進む
           .item__datail
           .table
