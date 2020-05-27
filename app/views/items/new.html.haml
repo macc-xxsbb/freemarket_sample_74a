@@ -41,7 +41,7 @@
           .item-show
             %p
               商品の詳細
-            .item-show__list
+            .item-show__category
               %label.label-edit  カテゴリー
               %sapn.required 必須
               = f.fields_for @item do |item|
@@ -98,26 +98,27 @@
               = item.text_field :price, placeholder: "0"
         %p.form-error
           300以上9999999以下で入力してください
-      .item-size
-        %p
-          サイズ(S~L等)
-        .item-size__content
-          .item-size__status
-            %sapn.required 必須
-          .item-size__bye
-            %span 
-            = f.fields_for @item do |item|
-              = item.text_field :size, placeholder: "S~L等"
-      .fee
-        .fee__price
-          販売手数料 (10%)
-        .fee__content
-          %span ー
-      .profit
-        .profit__price
-          販売利益
-        .profit__content
-          %span ー
+      .size-area
+        .item-size
+          %p
+            サイズ(S~L等)
+          .item-size__content
+            .item-size__status
+              %sapn.required 必須
+            .item-size__bye
+              %span 
+              = f.fields_for @item do |item|
+                = item.text_field :size, placeholder: "S~L等"
+        .fee
+          .fee__price
+            販売手数料 (10%)
+          .fee__content
+            %span ー
+        .profit
+          .profit__price
+            販売利益
+          .profit__content
+            %span ー
       .exhibilion
         .exhibilion__button
           = f.submit "出品する", class: 'exhibilionbutton'
