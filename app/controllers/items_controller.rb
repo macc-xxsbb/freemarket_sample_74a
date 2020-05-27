@@ -14,8 +14,6 @@ class ItemsController < ApplicationController
     @item.item_images.build
     @brand = Brand.new
     @shipping = Shipping.new
-
-    # @category = Category.all.order("id ASC").limit(8) 
     @category = Category.where(ancestry: nil)
   end
 
