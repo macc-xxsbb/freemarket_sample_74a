@@ -10,12 +10,7 @@ Rails.application.routes.draw do
   root to: 'items#index'
 
   resources :users, only: [:index, :show, :edit, :update, :new]
-  resources :items, only: [:index, :show, :new, :create, :edit, :destroy] do
-    resources :comments, only: :create
-    resources :item_images, only: :new
-    resources :brands, only: :new
-    resources :shipping, only: :new
-  end
+  
   resources :credit_cards, only: [:new, :edit, :create, :show, :destroy] do
   end
   resource :item_payments do
@@ -24,4 +19,16 @@ Rails.application.routes.draw do
       post "pay"
     end
   end
+
+  resources :items do 
+    resources :comments, only: :create
+    resources :item_images, only: :new
+    resources :brands, only: :new
+    resources :shipping, only: :new
+    collection do
+      get 'category_children' 
+      get 'category_grandchildren'
+    end
+  end
+
 end

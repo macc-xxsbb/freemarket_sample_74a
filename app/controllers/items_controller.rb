@@ -14,7 +14,20 @@ class ItemsController < ApplicationController
     @item.item_images.build
     @brand = Brand.new
     @shipping = Shipping.new
+
+    # @category = Category.all.order("id ASC").limit(8) 
+    @category = Category.where(ancestry: nil)
   end
+
+  def category_children  
+    @category_children = Category.find(params[:productcategory]).children 
+    end
+  
+ 
+  def category_grandchildren
+    @category_grandchildren = Category.find(params[:productcategory]).children
+  end
+  
 
   def create
     @item = Item.new(item_params)
@@ -70,7 +83,7 @@ class ItemsController < ApplicationController
     end
 
     def shipping_params  
-      params.require(:shipping).permit(:ship_base, :region, :city, :block, :ship_method, :ship_date, :prefecture_id)
+      params.require(:shipping).permit(:ship_base, :region, :city, :block, :ship_method, :ship_date_id, :prefecture_id)
     end
 
   end
