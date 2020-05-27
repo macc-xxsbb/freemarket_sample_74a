@@ -45,19 +45,8 @@
                   必須
               .product_category-select
                 = f.collection_select :category, Category.where(ancestry: nil), :id, :title, { prompt: "選択してください" }, { class: "category_select-box", id: "category_select" }
-                -# = f.collection_select :category, @category, :id, :title, { prompt: "選択してください" }, { class: "category_select-box", id: "category_select" }
                 %i.fa.fa-chevron-down
               .product_select-children
-          -# .item-show
-          -#   %p
-          -#     商品の詳細
-          -#   .item-show__category
-          -#     %label.label-edit  カテゴリー
-          -#     %sapn.required 必須
-          -#     = f.fields_for @item do |item|
-          -#       = item.select :category_id, Category.all.map { |category| [category.title, category.id] }, { selected: 14 } 
-          -#     .choice
-          -#       選択してください
       .item-show__list
         %label.label-edit  ブランド
         %sapn.item-show__list__any 任意
