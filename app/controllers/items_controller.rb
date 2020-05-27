@@ -17,7 +17,6 @@ class ItemsController < ApplicationController
   end
 
   def create
-    binding.pry
     @item = Item.new(item_params)
     @brand = Brand.new(brand_params)
     @shipping = Shipping.new(shipping_params)
@@ -71,7 +70,7 @@ class ItemsController < ApplicationController
     end
 
     def shipping_params  
-      params.require(:shipping).permit(:ship_base, :region, :city, :block, :ship_method, :ship_date, :prefecture_id)
+      params.require(:shipping).permit(:ship_base, :region, :city, :block, :ship_method, :ship_date_id, :prefecture_id)
     end
 
   end
