@@ -28,10 +28,10 @@ class ItemsController < ApplicationController
       if @brand.save && @shipping.save
         redirect_to root_path
       else
-        redirect_to root_path
+        render :new  
       end
     else
-      redirect_to root_path
+      render :new
     end
   end 
 
