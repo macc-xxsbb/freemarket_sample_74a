@@ -24,4 +24,16 @@ Rails.application.routes.draw do
       post "pay"
     end
   end
+
+  resources :items do 
+    resources :comments, only: :create
+    resources :item_images, only: :new
+    resources :brands, only: :new
+    resources :shipping, only: :new
+    collection do
+      get 'category_children' 
+      get 'category_grandchildren'
+    end
+  end
+
 end
