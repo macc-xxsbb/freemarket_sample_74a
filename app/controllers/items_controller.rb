@@ -14,21 +14,34 @@ class ItemsController < ApplicationController
     @item.item_images.build
     @brand = Brand.new
     @shipping = Shipping.new
+
+    # @category = Category.all.order("id ASC").limit(8) 
+    @category = Category.where(ancestry: nil)
   end
+
+  def category_children  
+    @category_children = Category.find(params[:productcategory]).children 
+    end
+  
+ 
+  def category_grandchildren
+    @category_grandchildren = Category.find(params[:productcategory]).children
+  end
+  
 
   def create
     @item = Item.new(item_params)
     @brand = Brand.new(brand_params)
     @shipping = Shipping.new(shipping_params)
 
-    if @item.save!
+    if @item.save
       item_id = @item.id
       @brand = Brand.new(brand_params.merge(item_id: item_id))
       @shipping = Shipping.new(shipping_params.merge(item_id: item_id)) 
       if @brand.save && @shipping.save
         redirect_to root_path
       else
-        render :new
+        render :new  
       end
     else
       render :new
