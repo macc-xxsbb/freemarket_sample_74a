@@ -21,17 +21,17 @@ class ItemsController < ApplicationController
     @brand = Brand.new(brand_params)
     @shipping = Shipping.new(shipping_params)
 
-    if @item.save!
+    if @item.save
       item_id = @item.id
       @brand = Brand.new(brand_params.merge(item_id: item_id))
       @shipping = Shipping.new(shipping_params.merge(item_id: item_id)) 
       if @brand.save && @shipping.save
         redirect_to root_path
       else
-        render :new
+        redirect_to root_path
       end
     else
-      render :new
+      redirect_to root_path
     end
   end 
 
