@@ -50,8 +50,8 @@
       .item-show__list
         %label.label-edit  ブランド
         %sapn.item-show__list__any 任意
-        = f.fields_for @brand do |brand|
-          = brand.text_field :brand, placeholder: "例） シャネル"
+        = f.fields_for @item do |item|
+          = item.text_field :brand_id, placeholder: "例） シャネル"
         .choice
           選択してください
       .item-show__list
@@ -68,7 +68,7 @@
           %label.label-edit  配送料の負担
           %sapn.required 必須
           = f.fields_for @shipping do |shipping|
-            = shipping.select :ship_base, { "選択してください": 1, "送料込み（出品者負担）": 2, "着払い（購入者負担）": 3 }
+            = shipping.collection_select :ship_base_id, ShipBase.all, :id, :name, prompt: "選択してください", class: 'input'
             .choice
               選択してください
             .delivery__list
@@ -140,3 +140,4 @@
       = image_tag 'logo-white.png', height: '49', width: '185'
     %p.logo__tag
       © FURIMA, Inc.
+

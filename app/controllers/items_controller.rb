@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
 
   before_action :move_to_index, except: [:index, :show, :search]
-  
+  before_action :set_item,    only: [:show, :edit, :update, :destroy]
+
   def index
     @item = Item.includes(:item_images, :brands, :shippings).order('created_at DESC')
     @newItems = Item.includes(:item_images).where(buyer_id: nil).limit(3)
@@ -21,11 +22,9 @@ class ItemsController < ApplicationController
     @category_children = Category.find(params[:productcategory]).children 
     end
   
- 
   def category_grandchildren
     @category_grandchildren = Category.find(params[:productcategory]).children
   end
-  
 
   def create
     @item = Item.new(item_params)
@@ -47,24 +46,25 @@ class ItemsController < ApplicationController
   end 
 
   def show
-    @item = Item.find(params[:id])
-    @categories = Category.find(params[:id])
-    @brand = Brand.find(params[:id])
-    @shipping = Shipping.find(params[:id])
-    @images = ItemImage.all
   end
 
   def destroy
-    item = Item.find(params[:id])
     item.destroy
     redirect_to root_path
   end
 
   def edit
-    @item = Item.find(params[:id])
+    @shipping = Shipping.find(params[:id])
+  end
+  
+  def update
+    if @item.update!(item_params)
+      redirect_to items_path , notice: ''
+    else
+      redirect_to edit_item_path
+    end
   end
 
-  
   private
 
     def move_to_index
@@ -72,16 +72,19 @@ class ItemsController < ApplicationController
     end
 
     def item_params
-      params.require(:item).permit(:item_name, :price, :size, :content, :category_id, :status_id, :buyer_id, item_images_attributes: [:image] ).merge(user_id: current_user.id, saler_id: current_user.id)
+      params.require(:item).permit(:brand_id, :shipping_id, :item_name, :price, :size, :content, :category_id, :status_id, :buyer_id, item_images_attributes: [:image, :id] ).merge(user_id: current_user.id, saler_id: current_user.id)
     end
-   
 
     def brand_params  
       params.require(:brand).permit(:brand)
     end
 
     def shipping_params  
-      params.require(:shipping).permit(:ship_base, :region, :city, :block, :ship_method, :ship_date_id, :prefecture_id)
+      params.require(:shipping).permit(:ship_base_id, :ship_method, :ship_date_id, :prefecture_id)
+    end
+
+    def set_item
+      @item = Item.find(params[:id])
     end
 
   end
