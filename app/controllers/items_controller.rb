@@ -21,7 +21,7 @@ class ItemsController < ApplicationController
 
   def category_children  
     @category_children = Category.find(params[:productcategory]).children 
-    end
+  end
   
   def category_grandchildren
     @category_grandchildren = Category.find(params[:productcategory]).children
@@ -43,12 +43,10 @@ class ItemsController < ApplicationController
         @item.save 
         redirect_to root_path
       else
-        redirect_to new_item_path(current_user.id)
-        # render action: :new
+        redirect_to new_item_path(current_user.id)  
       end
     else
       redirect_to new_item_path(current_user.id)
-      # render action: :new
     end
   end 
 
