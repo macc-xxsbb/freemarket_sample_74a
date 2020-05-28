@@ -46,8 +46,6 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @brand = Brand.find(params[:id])
-    @shipping = Shipping.find(params[:id])
   end
 
   def destroy

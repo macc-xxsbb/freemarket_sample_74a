@@ -41,7 +41,7 @@
                 %tr.table-tr
                   %th.table-th ブランド
                   %td.table-td
-                    -# = @item.brand.brand
+                    = @item.brand.brand
                 %tr.table-tr
                   %th.table-th 商品のサイズ
                   %td.table-td
@@ -53,15 +53,15 @@
                 %tr.table-tr
                   %th.table-th 配送料の負担
                   %td.table-td 
-                    -# = @item.ship_date.name
+                    = @item.shipping.ship_base.name
                 %tr.table-tr
                   %th.table-th 発送元の地域
                   %td.table-td
-                    = @shipping.prefecture.name
+                    = @item.shipping.prefecture.name
                 %tr.table-tr
                   %th.table-th 発送日の目安
                   %td.table-td 
-                    = @shipping.ship_date.name
+                    = @item.shipping.ship_date.name
           .optional__area
             %ul
               %li.optional__btn__star
