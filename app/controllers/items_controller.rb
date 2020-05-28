@@ -21,17 +21,14 @@ class ItemsController < ApplicationController
     @category_children = Category.find(params[:productcategory]).children 
     end
   
- 
   def category_grandchildren
     @category_grandchildren = Category.find(params[:productcategory]).children
   end
-  
 
   def create
     @item = Item.new(item_params)
     @brand = Brand.new(brand_params)
     @shipping = Shipping.new(shipping_params)
-
 
     if @item.save
       item_id = @item.id
@@ -61,7 +58,6 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    @brand = Brand.find(params[:id])
     @shipping = Shipping.find(params[:id])
   end
   
@@ -81,7 +77,7 @@ class ItemsController < ApplicationController
     end
 
     def item_params
-      params.require(:item).permit(:item_name, :price, :size, :content, :category_id, :status_id, :buyer_id, item_images_attributes: [:image, :id] ).merge(user_id: current_user.id, saler_id: current_user.id)
+      params.require(:item).permit(:brand_id, :shipping_id, :item_name, :price, :size, :content, :category_id, :status_id, :buyer_id, item_images_attributes: [:image, :id] ).merge(user_id: current_user.id, saler_id: current_user.id)
     end
 
     def brand_params  
