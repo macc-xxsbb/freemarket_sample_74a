@@ -36,6 +36,9 @@ class ItemsController < ApplicationController
       @brand = Brand.new(brand_params.merge(item_id: item_id))
       @shipping = Shipping.new(shipping_params.merge(item_id: item_id)) 
       if  @brand.save && @shipping.save
+        @item.brand_id = @brand.id
+        @item.shipping_id = @shipping.id
+        @item.save 
         redirect_to root_path
       else
         render :new  
@@ -46,6 +49,7 @@ class ItemsController < ApplicationController
   end 
 
   def show
+    @categories = Category.find(params[:id])
   end
 
   def destroy
@@ -54,7 +58,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @shipping = Shipping.find(params[:id])
+    # @shipping = Shipping.find(params[:id])
   end
   
   def update
