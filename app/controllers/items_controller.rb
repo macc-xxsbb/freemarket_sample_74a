@@ -59,7 +59,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    # @shipping = Shipping.find(params[:id])
+    @shipping = Shipping.find(params[:id])
   end
   
   def update

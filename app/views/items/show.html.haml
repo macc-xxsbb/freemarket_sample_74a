@@ -26,6 +26,7 @@
               = link_to buy_item_payments_path(@item.id) , class: "item_payment", method: :get do
                 購入画面に進む
           .item__datail
+            = @item.content
           .table
             %table.table__main
               %tbody.table__main__body
