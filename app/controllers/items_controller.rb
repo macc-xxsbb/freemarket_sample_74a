@@ -28,6 +28,7 @@ class ItemsController < ApplicationController
   end
 
   def create
+    binding.pry
     @item = Item.new(item_params)
     @brand = Brand.new(brand_params)
     @shipping = Shipping.new(shipping_params)
@@ -42,10 +43,12 @@ class ItemsController < ApplicationController
         @item.save 
         redirect_to root_path
       else
-        render :new  
+        redirect_to new_item_path(current_user.id)
+        # render action: :new
       end
     else
-      render :new
+      redirect_to new_item_path(current_user.id)
+      # render action: :new
     end
   end 
 

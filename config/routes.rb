@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   root to: 'items#index'
 
   resources :users, only: [:index, :show, :edit, :update, :new]
-
   resources :credit_cards, only: [:new, :edit, :create, :show, :destroy] do
   end
   resource :item_payments do
