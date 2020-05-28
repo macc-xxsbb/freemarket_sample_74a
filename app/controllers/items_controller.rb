@@ -28,7 +28,6 @@ class ItemsController < ApplicationController
   end
 
   def create
-    binding.pry
     @item = Item.new(item_params)
     @brand = Brand.new(brand_params)
     @shipping = Shipping.new(shipping_params)
@@ -55,12 +54,13 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    item.destroy
+
+    @item.destroy
     redirect_to root_path
   end
 
   def edit
-    # @shipping = Shipping.find(params[:id])
+    @shipping = Shipping.find(params[:id])
   end
   
   def update

@@ -68,7 +68,7 @@
         .delivery__list
           %label.label-edit  配送料の負担
           %sapn.required 必須
-          = f.fields_for @item do |item|
+          = f.fields_for @shipping do |shipping|
             = shipping.collection_select :ship_base_id, ShipBase.all, :id, :name, prompt: "選択してください", class: 'input'
             .choice
               選択してください
