@@ -68,8 +68,8 @@
         .delivery__list
           %label.label-edit  配送料の負担
           %sapn.required 必須
-          = f.fields_for @shipping do |shipping|
-            = shipping.select :ship_base, { "選択してください": 1, "送料込み（出品者負担）": 2, "着払い（購入者負担）": 3 }
+          = f.fields_for @item do |item|
+            = shipping.collection_select :ship_base_id, ShipBase.all, :id, :name, prompt: "選択してください", class: 'input'
             .choice
               選択してください
             .delivery__list
@@ -82,7 +82,7 @@
             .delivery__list
               %label.label-edit  発送までの日数
               %sapn.required 必須
-              = shipping.select :ship_date, { "選択してください": 1, "1日〜2日で発送": 2, "2日〜3日で発送": 3, "4日〜7日で発送": 4 }
+              = shipping.collection_select :ship_date_id, ShipDate.all, :id, :name, prompt: "選択してください", class: 'input'
               .choice
                 選択してください
       .item-price

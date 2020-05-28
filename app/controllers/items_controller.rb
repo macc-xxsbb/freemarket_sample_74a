@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
     @newItems = Item.includes(:item_images).where(buyer_id: nil).limit(3)
     @item = Item.new
     @brand = Brand.new
+
   end
 
   def new
@@ -27,6 +28,7 @@ class ItemsController < ApplicationController
   end
 
   def create
+    binding.pry
     @item = Item.new(item_params)
     @brand = Brand.new(brand_params)
     @shipping = Shipping.new(shipping_params)
@@ -35,7 +37,10 @@ class ItemsController < ApplicationController
       item_id = @item.id
       @brand = Brand.new(brand_params.merge(item_id: item_id))
       @shipping = Shipping.new(shipping_params.merge(item_id: item_id)) 
-      if @brand.save && @shipping.save
+      if  @brand.save && @shipping.save
+        @item.brand_id = @brand.id
+        @item.shipping_id = @shipping.id
+        @item.save 
         redirect_to root_path
       else
         redirect_to new_item_path(current_user.id)  
@@ -46,6 +51,7 @@ class ItemsController < ApplicationController
   end 
 
   def show
+    @categories = Category.find(params[:id])
   end
 
   def destroy
@@ -54,7 +60,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @shipping = Shipping.find(params[:id])
+    # @shipping = Shipping.find(params[:id])
   end
   
   def update
