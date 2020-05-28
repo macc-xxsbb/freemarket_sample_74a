@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
     @newItems = Item.includes(:item_images).where(buyer_id: nil).limit(3)
     @item = Item.new
     @brand = Brand.new
+
   end
 
   def new
@@ -46,6 +47,7 @@ class ItemsController < ApplicationController
   end 
 
   def show
+    @categories = Category.find(params[:id])
   end
 
   def destroy
