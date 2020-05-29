@@ -39,10 +39,8 @@
             入力してください
             .product_select-details
               .product_select-group
-                .product_header
-                  カテゴリー
-                .product_require
-                  必須
+                %label.label-edit  カテゴリー
+                %sapn.required 必須
               .product_category-select
                 = f.collection_select :category, Category.where(ancestry: nil), :id, :title, { prompt: "選択してください" }, { class: "category_select-box", id: "category_select" }
                 %i.fa.fa-chevron-down
@@ -89,15 +87,12 @@
         %p
           価格（¥300〜9,999,999)
         .item-price__content
-          .item-price__status
-            %label.label-edit 商品の状態
-            %sapn.required 必須
           .item-price__bye
             %span ¥
             = f.fields_for @item do |item|
               = item.text_field :price, placeholder: "0"
-        %p.form-error
-          300以上9999999以下で入力してください
+        -# %p.form-error
+        -#   300以上9999999以下で入力してください
       .size-area
         .item-size
           %p
@@ -109,16 +104,16 @@
               %span 
               = f.fields_for @item do |item|
                 = item.text_field :size, placeholder: "S~L等"
-        .fee
-          .fee__price
-            販売手数料 (10%)
-          .fee__content
-            %span ー
-        .profit
-          .profit__price
-            販売利益
-          .profit__content
-            %span ー
+        -# .fee
+        -#   .fee__price
+        -#     販売手数料 (10%)
+        -#   .fee__content
+        -#     %span ー
+        -# .profit
+        -#   .profit__price
+        -#     販売利益
+        -#   .profit__content
+        -#     %span ー
       .exhibilion
         .exhibilion__button
           = f.submit "出品する", class: 'exhibilionbutton'

@@ -80,9 +80,9 @@ ActiveRecord::Schema.define(version: 2020_05_28_020813) do
     t.integer "user_id"
     t.integer "category_id"
     t.integer "shipping_id"
+    t.integer "status_id"
     t.integer "saler_id"
     t.integer "buyer_id"
-    t.integer "status_id"
     t.integer "brand_id"
   end
 
