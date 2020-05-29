@@ -38,6 +38,8 @@
                   %th.table-th カテゴリー
                   %td.table-td
                     = link_to "/", class: "link-blue" do
+                      = @item.category.parent.parent.title
+                      = @item.category.parent.title
                       = @item.category.title
                 %tr.table-tr
                   %th.table-th ブランド
