@@ -50,7 +50,6 @@ class ItemsController < ApplicationController
   end 
 
   def show
-    @categories = Category.find(params[:id])
   end
 
   def destroy
