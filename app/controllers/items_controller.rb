@@ -60,21 +60,21 @@ class ItemsController < ApplicationController
 
   def edit
     @item.item_images.build 
-    @categories = Category.find(params[:id])
+    @categories = @item.category
     @brand = @item.brand
     @shipping = @item.shipping
   end
 
   def update
     @item = Item.find(params[:id])
-    @categories = Category.find(params[:id])
-    @brand = Brand.find(params[:id])
-    @shipping = Shipping.find(params[:id])
-    @item = current_user.items.find(params[:id])
+    # @categories = Category.find(params[:id])
+    # @brand = Brand.find(params[:id])
+    # @shipping = Shipping.find(params[:id])
+    # @item = current_user.items.find(params[:id])
     if @item.update(item_params)
       redirect_to items_path , notice: '出品情報が更新されました'
     else
-      redirect_to edit_item_pathender :edit
+       render :edit
     end
   end
   
