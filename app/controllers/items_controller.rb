@@ -59,18 +59,25 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item.item_images.build 
+    @categories = @item.category
     @brand = @item.brand
     @shipping = @item.shipping
-    @brand.save && @shipping.save
   end
-  
+
   def update
-    if @item.update!(item_params)
-      redirect_to items_path , notice: ''
+    @item = Item.find(params[:id])
+    # @categories = Category.find(params[:id])
+    # @brand = Brand.find(params[:id])
+    # @shipping = Shipping.find(params[:id])
+    # @item = current_user.items.find(params[:id])
+    if @item.update(item_params)
+      redirect_to items_path , notice: '出品情報が更新されました'
     else
-      redirect_to edit_item_path
+       render :edit
     end
   end
+  
 
   private
 
@@ -79,8 +86,8 @@ class ItemsController < ApplicationController
     end
 
     def item_params
-      params.require(:item).permit(:brand_id, :shipping_id, :item_name, :price, :size, :content, :category_id, :status_id, :buyer_id, item_images_attributes: [:image, :id] ).merge(user_id: current_user.id, saler_id: current_user.id)
-    end
+      params.require(:item).permit(:brand_id, :shipping_id, :item_name, :price, :size, :content, :category_id, :status_id, :buyer_id, item_images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id, saler_id: current_user.id)
+    end   
 
     def brand_params  
       params.require(:brand).permit(:brand)
@@ -94,5 +101,5 @@ class ItemsController < ApplicationController
       @item = Item.find(params[:id])
     end
 
-  end
+end
 

@@ -9,18 +9,26 @@
         %p 最大１０枚までアップロードできます。
         .name__image
           .name__image__set
-            .name__image__set__file.item-num-0
-              = f.fields_for @item do |item|
+            = f.fields_for @item do |item|
+              #image-box__square
+                #previews
+                  - @item.item_images.each_with_index do |item_image, index|
+                    - if item_image.image.url
+                      %div{data: {index: "#{index}"}, id: "previews__var"}
+                        = image_tag item_image.image.url, data: { index: "#{index}" }, width: "114px", height: '80px' 
+                        %span.js-remove 削除
                 = item.fields_for :item_images do |item_image|
-                  #image-box__container
-                    = item_image.file_field :image, type: 'file', name: "item[item_images_attributes][0][image]", value:"", id:"img-file0", class:"js-file"
-                    #image-box__container__var
-                      %label{for: "img-file0"}
-                        %i.fas.fa-camera
-            %p
-              ドラッグアンドドロップ
-              %br
-              またはクリックしてファイルをアップロード
+                  %div{data: {index: "#{item_image.index}"}, class: "js-file_group"}
+                    = item_image.file_field :image, style: "display:none", class: 'js-file'
+                  - if @item.persisted?
+                    = item_image.check_box :_destroy, style: "display:none", data:{ index: item_image.index }, class: 'hidden-destroy'
+                #image-box__square__var
+                  %label{for: "_item_item_images_attributes_#{@item.item_images.count}_image"}
+                    %i.fas.fa-camera
+              %p
+                ドラッグアンドドロップ
+                %br
+                またはクリックしてファイルをアップロード
         .image__message
           画像がありません
       .item-explain

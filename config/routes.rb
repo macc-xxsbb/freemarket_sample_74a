@@ -19,11 +19,15 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items do 
+  resources :items do
     resources :comments, only: :create
-    resources :item_images, only: :new
-    resources :brands, only: :new
-    resources :shipping, only: :new
+    resources :item_images, only: [:new, :edit, :update]
+    resources :brands, only: [:new, :edit, :update]
+    resources :shipping, only: [:new, :edit, :update]
+    member do
+      get 'category_children' 
+      get 'category_grandchildren'
+    end
     collection do
       get 'category_children' 
       get 'category_grandchildren'
