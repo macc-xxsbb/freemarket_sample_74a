@@ -9,17 +9,24 @@
 |email|string|null: false|
 |password|string|null: false|
 |nickname|string|null: false|
-|name|string|null: false|
-|name_kana|string|null: false|
+|family_name|string|null: false|
+|first_name|string|null: false|
+|family_name_kana|string|null: false|
+|first_name_kana|string|null: false|
 |birthdate|date|null: false|
 |phone|string|null: false|
 
 ### Association
 
+- has_one :address
+- has_one :credit_card
+
 - has_many :credits
 - has_many :items
 - has_many :comments
-
+- has_many :buyed_items
+- has_many :saling_items
+- has_many :sold_items
 ------------------------------------
 ## 商品
 ## itemsテーブル
@@ -30,32 +37,36 @@
 |price|integer|null: false|
 |size|string|null: false|
 |content|text|null: false|
-|status|integer|null: false|
+|user_id|integer|null: false|
 |category_id|integer|null: false, foreign_key: true|
+|shipping_id|integer|null: false|
+|status_id|integer|null: false|
+|saler_id|integer|null: false|
+|buyer_id|integer|null: false|
+|brand_id|integer|null: false|
 
 ### Association
 
 - belongs_to :user
+- belongs_to :category
+- belongs_to :brand
+- belongs_to :shipping
 - has_many :item_images
 - has_many :comments
-- belongs_to :shipping
-- belongs_to :brand
-- has_many :categories
-
+- belongs_to :saler
+- belongs_to :buyer
+- belongs_to :status
+- belongs_to :prefecture
 ------------------------------------
 ## 発送
 ## shippingテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|item_name|string|null: false|
-|ship_base|integer|null: false|
-|region|string|null: false|
-|city|string|null: false|
-|block|string|null: false|
-|ship_method|string|null: false|
-|ship_date|string|null: false|
+|ship_date_id|integer|null: false|
 |item_id|integer|null: false, foreign_key: true|
+|prefecture_id|integer|null: false|
+|ship_base_id|integer|null: false|
 
 ### Association
 
@@ -63,14 +74,13 @@
 
 ------------------------------------
 ## クレジットカード
-## creditテーブル
+## credit_cardsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|credit_cardapproval_code|integer|null: false, unique: true|
-|exp|integer|null: false|
-|security_cord|integer|null: false|
 |user_id|integer|null: false, foreign_key: true|
+|customer_id|integer|null: false|
+|card_id|integer|null: false|
 
 ### Association
 
@@ -82,9 +92,9 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|comment|text|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |item_id|integer|null: false, foreign_key: true|
+|comment|text|null: false|
 
 ### Association
 
@@ -101,7 +111,7 @@
 
 ### Association
 
-- belongs_to :item
+- has_many :items
 
 ------------------------------------
 ## ブランド
@@ -113,7 +123,7 @@
 
 ### Association
 
-- has_many :items
+- belongs_to :item
 
 ------------------------------------
 
@@ -129,5 +139,33 @@
 
 - belongs_to :item
 
+------------------------------------
+## アドレス
+## addressesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|prefecture_id|integer|null: false|
+|city|string|null: false|
+|zipcode|integer|null: false|
+|address|text|null: false|
+|user_id|integer|null: false|
+|building|string| |
+
+### Association
+
+belongs_to :user
 
 ------------------------------------
+## 商品購入
+## item_peymentテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|item_id|integer|null: false|
+|saler_id|integer|null: false|
+|buyer_id|integer|null: false|
+
+### Association
+
+belongs_to :item
