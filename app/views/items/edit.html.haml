@@ -46,21 +46,6 @@
               = item.text_area :content, placeholder: "商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありませ\nん。あわせやすいのでおすすめです。"
           %p
             入力してください
-            .product_select-details
-              .product_select-group
-                %label.label-edit  カテゴリー
-                %sapn.required 必須
-              .product_category-select
-                = f.collection_select :category, Category.where(ancestry: nil), :id, :title, { prompt: "選択してください" }, { class: "category_select-box", id: "category_select" }
-                %i.fa.fa-chevron-down
-              .product_select-children
-      .item-show__list
-        %label.label-edit  ブランド
-        %sapn.item-show__list__any 任意
-        = f.fields_for @brand do |brand|
-          = brand.text_field :brand, placeholder: "例） シャネル"
-        .choice
-          選択してください
       .item-show__list
         %label.label-edit 商品の状態
         %sapn.required 必須
