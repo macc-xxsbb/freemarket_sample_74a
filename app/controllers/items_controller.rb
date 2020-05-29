@@ -68,8 +68,8 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     # @categories = Category.find(params[:id])
-    # @brand = Brand.find(params[:id])
-    # @shipping = Shipping.find(params[:id])
+    @brand = Brand.find(params[:id])
+    @shipping = Shipping.find(params[:id])
     # @item = current_user.items.find(params[:id])
     if @item.update(item_params)
       redirect_to items_path , notice: '出品情報が更新されました'
