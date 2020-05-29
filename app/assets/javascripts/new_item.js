@@ -80,9 +80,7 @@ $(document).on('turbolinks:load', function(){
   // 編集機能
   let fileIndex = [1,2,3,4,5,6,7,8,9,10];
   lastIndex = $('.js-file_group:last').data('index');
-  console.log(lastIndex)
   fileIndex.splice(0, lastIndex);
-  console.log(fileIndex)
 
   $('.hidden-destroy').hide();
 
@@ -100,7 +98,6 @@ $(document).on('turbolinks:load', function(){
       fileIndex.shift();
       // 末尾の数に1足した数を追加する
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
-      console.log(fileIndex)
       $('#image-box__square__var').remove();
       $('#image-box__square').append(labels2(fileIndex[0] - 1));
       $(document).on("click", '.item-image__operetion--delete' + targetIndex, function(){

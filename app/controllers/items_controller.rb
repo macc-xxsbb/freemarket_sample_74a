@@ -50,7 +50,6 @@ class ItemsController < ApplicationController
   end 
 
   def show
-    @categories = Category.find(params[:id])
   end
 
   def destroy
@@ -68,10 +67,8 @@ class ItemsController < ApplicationController
   def update
 
     @item = Item.find(params[:id])
-    # @categories = @item.categories
     @brand = @item.brand
     @shipping = @item.shipping
-    # @item = current_user.items.find(params[:id])
     if @item.update(item_params) && @shipping.update(shipping_params) == @brand.update(brand_params)
       redirect_to items_path , notice: '出品情報が更新されました'
     else
