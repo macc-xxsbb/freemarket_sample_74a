@@ -32,6 +32,7 @@ class ItemPaymentsController < ApplicationController
         @exp_month = @customer_card.exp_month.to_s
         @exp_year = @customer_card.exp_year.to_s.slice(2,3)
       else
+        
       end
     else
       redirect_to user_session_path, alert: "ログインしてください"

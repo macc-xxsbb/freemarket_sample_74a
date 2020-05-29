@@ -4,8 +4,7 @@
 .container
   %header.header-area
     %h1.header-area__title
-      = link_to image_tag("logo.png", alt: 'FURIMA', class: "header-area__title__link"), "#"
-
+      .image__box__top
   %main.main
     %section.buy
       %h2.buy__head
@@ -14,10 +13,12 @@
         .buy__item__content
           .buy__item__content__box
             %h3.buy__item__content__box__image
-              = image_tag "pict-reason-02.jpg", data: { src: "#" }, class: "is-higher-height"
+              - @item.item_images.each.with_index do |image, i|
+                -if i == 0
+                  = image_tag "#{image.image}", alt: '商品画像', width: '150', height: '100', class: 'image-first', index: i
             .buy__item__content__detail
               %p.buy__item__content__detail__name
-                新品 デジタル 腕時計 多機能 LED ボーイズ(キッズ)から大人までB5
+                = @item.item_name
               %p.buy__item__content__detail__price
                 %span
                   = "#{@item.price}" + "円"
@@ -25,33 +26,7 @@
                   （税込）送料込み
       %section.buy__item
         .buy__item__content
-          -# = form_with url: new_item_payments_path do |f|
-          -#   %ul.buy__item__content__price
-          -#     %li.buy__item__content__price__row.bold
-          -#       .buy__item__content__price__row--left.buy__item__content__price__row--label
-          -#         支払い金額
-          -#       .buy__item__content__price__row--right
-          -#         %span
-          -#           = "￥" + "#{@item.price}"
-          -#         %ul.buy__item__content__according
-          -#     %li.buy__item__content__according__parent
-          -#       .checkbox-default
-          -#         = f.check_box :price
-          -#         %label
-          -#           ポイントを使用 (所持ポイント: P0)
-
-
-
-
-            %section.buy__item__content__method.buy-user-info
-
-              -# .buy__item__content__method__inner
-              -#   %h3
-              -#     支払い方法
-              -#     %p.buy-user-info__text
-              -#       %i.icon-plus-circle
-              -#       %span.buy-register-text
-              -#         = link_to "登録してください", "#", class: "pay-method"
+          %section.buy__item__content__method.buy-user-info
           - if @user.credit_card.present?
             .purchase_function
               .credit_card_info_title
@@ -71,23 +46,7 @@
                 = link_to "登録クレジットカードで購入する", pay_item_payments_path(item_id: @item.id), method: :post, class: "btn"
           - else 
             .purchase_none_btn
-              = form_tag(action: :pay, method: :post) do
-                %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript" ,"data-text": "購入する" ,"data-key": "pk_test_1f04da6f2878c190088bf94e",}
-
-
-
-            -# %section.buy__item__content__method.buy-user-info
-            -#   .buy__item__content__method__inner
-            -#     %h3
-            -#       配送先 
-            -#       %p.buy-user-info__text
-            -#         %i.icon-plus-circle
-            -#         %span.buy-register-text
-            -#           = link_to "登録してください", "#", class: "pay-method" 
-            -# %section.buy__item__content__method.buy-user-info
-            -#   = f.submit '購入する', class: "btn-default btn-red bold"
-            -#   = f.hidden_field :price, id: "user_info_is_not_complete"
-
+              = link_to "クレジットカードを登録してください", edit_credit_card_path(current_user.id)
   %footer.footer-area
     %nav.footer-area__content
       %ul.clearfix.footer-area__content__box

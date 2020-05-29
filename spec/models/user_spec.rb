@@ -27,9 +27,9 @@ describe User do
     end
 
     it "password_confirmationがない場合は登録できないこと" do
-      user = build(:user, password_confirmation: nil)
+      user = build(:user, password: nil)
       user.valid?
-      expect(user.errors[:password_confirmation]).to include("can't be blank")
+      expect(user.errors[:password]).to include("can't be blank")
     end
 
     it "family_nameがない場合は登録できないこと" do
@@ -57,7 +57,7 @@ describe User do
     end
 
     it "birthdateがない場合は登録できないこと" do
-      user = build(:user, bithdate: nil)
+      user = build(:user, birthdate: nil)
       user.valid?
       expect(user.errors[:birthdate]).to include("can't be blank")
     end
@@ -81,9 +81,9 @@ describe User do
     end
 
     it "passwordが6桁以下では登録できないこと" do
-      user = build(:user, password: "aaaaaa")
+      user = build(:user, password: "aaaaaa", password_confirmation: "aaaaaa")
       user.valid?
-      expect(user.errors[:password]).to include("is too short")
+      expect(user.errors[:password]).to include("is too short (minimum is 7 characters)")
     end
 
     it "passwordとpassword_confirmationが一致しない場合は登録できないこと" do
@@ -102,16 +102,16 @@ describe User do
       expect(user).to be_valid
     end
 
-    it "phoneが11桁以上では登録できないこと" do
+    it "phoneが12桁以上では登録できないこと" do
       user = build(:user, phone: "111111111111")
       user.valid?
-      expect(user.errors[:phone]).to include("is too long")
+      expect(user.errors[:phone]).to include("is too long (maximum is 11 characters)")
     end
 
     it "phoneが9桁以下では登録できないこと" do
       user = build(:user, phone: "111111111")
       user.valid?
-      expect(user.errors[:phone]).to include("is too short")
+      expect(user.errors[:phone]).to include("is too short (minimum is 10 characters)")
     end
 
   end

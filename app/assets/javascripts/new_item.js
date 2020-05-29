@@ -1,6 +1,5 @@
-$(function(){ 
-
   // 関数の定義
+$(document).on('turbolinks:load', function(){
   var dataBox = new DataTransfer();
   var file_field = document.querySelector('input[type=file]')
   const buildFileField = (index) => {

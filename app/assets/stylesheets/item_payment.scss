@@ -96,27 +96,34 @@ body {
               }
             }
 
-            &__detail {
-              margin-left: 16px;
-
+            .buy__item__content__detail {
+              margin-left: 45px;
               &__name {
-                font-size: 14px;
-                margin: 0;
-                padding: 0 0 8px;
-                line-height: 1.5;
-                text-align: left;
-              }
-
-              &__price {
-                margin: 0;
-                text-align: left;
-                font-size: 15px;
-
-                .shipping-fee {
-                  font-size: 12px;
-                }
+                font-size: 20px;
               }
             }
+
+            // &__detail {
+            //   margin-left: 30px;
+
+            //   &__name {
+            //     font-size: 20px;
+            //     margin: 0;
+            //     padding: 0 0 8px;
+            //     line-height: 1.5;
+            //     text-align: left;
+            //   }
+
+            //   &__price {
+            //     margin: 0;
+            //     text-align: left;
+            //     font-size: 15px;
+
+            //     .shipping-fee {
+            //       font-size: 12px;
+            //     }
+            //   }
+            // }
           }
 
           &__price {
