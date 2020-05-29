@@ -51,6 +51,7 @@
                 %label.label-edit  カテゴリー
                 %sapn.required 必須
               .product_category-select
+              = f.fields_for @item do |item|
                 = f.collection_select :category, Category.where(ancestry: nil), :id, :title, { prompt: "選択してください" }, { class: "category_select-box", id: "category_select" }
                 %i.fa.fa-chevron-down
               .product_select-children
