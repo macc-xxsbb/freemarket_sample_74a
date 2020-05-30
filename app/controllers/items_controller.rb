@@ -71,7 +71,7 @@ class ItemsController < ApplicationController
     if @item.update(item_params) && @shipping.update(shipping_params) == @brand.update(brand_params)
       redirect_to items_path , notice: '出品情報が更新されました'
     else
-      render :edit
+      redirect_to edit_item_path
     end
   end
   
