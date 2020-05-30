@@ -113,16 +113,6 @@
               %span 
               = f.fields_for @item do |item|
                 = item.text_field :size, placeholder: "S~L等"
-      -# .fee
-      -#   .fee__price
-      -#     販売手数料 (10%)
-      -#   .fee__content
-      -#     %span ー
-      -# .profit
-      -#   .profit__price
-      -#     販売利益
-      -#   .profit__content
-      -#     %span ー
       .exhibilion
         .exhibilion__button
           = f.submit "変更する", class: 'exhibilionbutton'
