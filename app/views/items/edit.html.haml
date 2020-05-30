@@ -50,11 +50,23 @@
               .product_select-group
                 %label.label-edit  カテゴリー
                 %sapn.required 必須
-              .product_category-select
-              = f.fields_for @item do |item|
-                = f.collection_select :category, Category.where(ancestry: nil), :id, :title, { prompt: "選択してください" }, { class: "category_select-box", id: "category_select" }
-                %i.fa.fa-chevron-down
-              .product_select-children
+                .wrapper.category-wrapper
+                  = f.label :category_id , class: 'wrapper__label category-wrapper-label', id: "wrapper__label--category" do
+                    .category-wrapper-box
+                      .category-wrapper-select
+                        .category-wrapper-select__box
+                          = f.select :parent_name, @category_parent_array, {selected:@item.category.parent.parent.title}, { class: 'category-wrapper__category form-control', id: 'parent_category'}
+                      .category-wrapper-select#children_wrapper
+                        .category-wrapper-select__box
+                          = f.select :child_id, options_for_select(@category_children_array.map{|b| [b.title, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.parent.id}),{}, {class: 'category-wrapper__category form-control', id: 'child_category'}
+                      .category-wrapper-select#grandchildren_wrapper
+                        .category-wrapper-select__box
+                          = f.select :category_id, options_for_select(@category_grandchildren_array.map{|b| [b.title, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.id}),{}, {class: 'category-wrapper__category form-control', id: 'grandchild_category'}
+              -# .product_category-select
+              -# = f.fields_for @item do |item|
+              -#   = f.collection_select :category, Category.where(ancestry: nil), :id, :title, { prompt: "選択してください" }, { class: "category_select-box", id: "category_select" }
+              -#   %i.fa.fa-chevron-down
+              -# .product_select-children
       .item-show__list
         %label.label-edit  ブランド
         %sapn.item-show__list__any 任意
