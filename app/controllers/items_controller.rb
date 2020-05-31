@@ -88,8 +88,8 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @brand = @item.brand
     @shipping = @item.shipping
-    binding.pry
-    if @item.update(item_params) && @shipping.update(shipping_params) == @brand.update(brand_params)
+    if @item.update(item_params)
+      # @item.update(item_params) && @shipping.update(shipping_params) == @brand.update(brand_params)
       redirect_to root_path , notice: '出品情報が更新されました'
     else
       @categories = @item.category
