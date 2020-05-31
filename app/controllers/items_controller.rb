@@ -69,7 +69,7 @@ class ItemsController < ApplicationController
 
     @category_parent_array = []
     Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.title
+      @category_parent_array << parent
     end
 
     @category_children_array = []
@@ -88,9 +88,29 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @brand = @item.brand
     @shipping = @item.shipping
+    binding.pry
     if @item.update(item_params) && @shipping.update(shipping_params) == @brand.update(brand_params)
-      redirect_to items_path , notice: '出品情報が更新されました'
+      redirect_to root_path , notice: '出品情報が更新されました'
     else
+      @categories = @item.category
+      grandchild_category = @item.category
+      child_category = grandchild_category.parent
+
+      @category_parent_array = []
+      Category.where(ancestry: nil).each do |parent|
+        @category_parent_array << parent
+      end
+
+      @category_children_array = []
+      Category.where(ancestry: child_category.ancestry).each do |children|
+        @category_children_array << children
+      end
+
+      @category_grandchildren_array = []
+      Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
+        @category_grandchildren_array << grandchildren
+      end
+
       render :edit
     end
   end
