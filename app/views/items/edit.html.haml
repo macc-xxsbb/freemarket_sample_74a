@@ -20,7 +20,7 @@
                 = item.fields_for :item_images do |item_image|
                   %div{data: {index: "#{item_image.index}"}, class: "js-file_group"}
                     = item_image.file_field :image, style: "display:none", class: 'js-file'
-                  - if @item.persisted?
+                  - if item_image.object.persisted? 
                     = item_image.check_box :_destroy, style: "display:none", data:{ index: item_image.index }, class: 'hidden-destroy'
                 #image-box__square__var
                   %label{for: "_item_item_images_attributes_#{@item.item_images.count}_image"}
