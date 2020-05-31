@@ -15,6 +15,7 @@ class Item < ApplicationRecord
   belongs_to :prefecture
 
   validates :item_name, presence: true
+  validates :item_images, presence: true
   validates :price, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
   validates :content, presence: true
   validates :category_id, presence: true

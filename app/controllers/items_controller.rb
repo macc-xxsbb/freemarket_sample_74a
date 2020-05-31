@@ -58,7 +58,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item.item_images.build 
+    @item.item_images.build
     @categories = @item.category
     @brand = @item.brand
     @shipping = @item.shipping
@@ -84,7 +84,6 @@ class ItemsController < ApplicationController
   end
 
   def update
-
     @item = Item.find(params[:id])
     @brand = @item.brand
     @shipping = @item.shipping
@@ -110,8 +109,7 @@ class ItemsController < ApplicationController
       Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
         @category_grandchildren_array << grandchildren
       end
-
-      render :edit
+      redirect_to edit_item_path
     end
   end
   
@@ -123,7 +121,7 @@ class ItemsController < ApplicationController
     end
 
     def item_params
-      params.require(:item).permit(:brand_id, :shipping_id, :item_name, :price, :size, :content, :category_id, :status_id, :buyer_id, item_images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id, saler_id: current_user.id)
+      params.require(:item).permit(:brand_id, :shipping_id, :item_name, :price, :size, :content, :category_id, :status_id, :buyer_id, item_images_attributes: [:image, :id, :_destroy]).merge(user_id: current_user.id, saler_id: current_user.id)
     end   
 
     def brand_params  
